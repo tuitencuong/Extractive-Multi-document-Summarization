@@ -763,13 +763,13 @@ button.primary,.flow-controls #flow-play,.km-graph-toolbar .km-graph-play,
 const SAMPLE=[
 
  // Tài liệu 1: hướng dẫn phân loại rác tại nguồn.
- 'Thành phố triển khai chương trình phân loại rác tại nguồn ở ba quận. Hộ gia đình được hướng dẫn tách rác hữu cơ, giấy và nhựa. Thùng màu riêng giúp người dân bỏ rác đúng quy định. Trường học hướng dẫn học sinh nhận biết vật liệu có thể tái chế. Các tổ dân phố tiếp nhận phản ánh về những điểm tập kết rác quá tải.',
+ 'Trong những năm gần đây, lượng rác thải nhựa tại các đô thị Việt Nam ngày càng gia tăng do nhu cầu tiêu dùng của người dân.Túi ni-lông, hộp xốp và cốc nhựa dùng một lần xuất hiện phổ biến tại chợ, siêu thị và các cửa hàng thức ăn nhanh.Phần lớn rác thải nhựa sinh hoạt chưa được phân loại tại nguồn, khiến quá trình thu gom và tái chế gặp nhiều khó khăn.Một lượng lớn rác nhựa bị thải ra sông hồ và cống thoát nước, làm tăng nguy cơ ngập úng khi mưa lớn.Thực trạng này cho thấy việc giảm thiểu rác thải nhựa cần sự tham gia của cả người dân, doanh nghiệp và cơ quan quản lý.',
 
  // Tài liệu 2: thu gom và xử lý vật liệu.
- 'Xe chuyên dụng thu gom riêng rác đã phân loại mỗi tuần. Xe chuyển giấy và nhựa đến nhà máy để xử lý. Nhà máy cân và phân loại vật liệu thu hồi trước khi tái chế. Rác hữu cơ sạch được đưa đến khu ủ compost để tạo phân bón. Lịch thu gom được thông báo trước nhằm hạn chế tình trạng rác bị trộn lẫn.',
+ 'Rác thải nhựa gây ra nhiều vấn đề môi trường vì phần lớn vật liệu nhựa cần thời gian rất dài để phân hủy tự nhiên.Khi tích tụ trong môi trường nước, các mảnh nhựa có thể gây nguy hiểm cho sinh vật và làm suy giảm chất lượng hệ sinh thái.Quá trình phân rã nhựa tạo ra các hạt vi nhựa có khả năng đi vào chuỗi thức ăn và đặt ra những lo ngại về sức khỏe con người.Tại đô thị, rác nhựa làm mất mỹ quan đường phố và gia tăng áp lực lên hệ thống xử lý chất thải.Nếu không có biện pháp kiểm soát hiệu quả, chi phí khắc phục ô nhiễm nhựa có thể tiếp tục tăng trong tương lai.',
 
  // Tài liệu 3: kết quả thí điểm và cải tiến chương trình.
- 'Thí điểm giúp giảm lượng rác đưa đi chôn lấp. Số hộ tham gia tăng sau các buổi hướng dẫn. Báo cáo hằng tháng so sánh khối lượng rác trước và sau chương trình. Đội kiểm tra lấy mẫu để đánh giá tỷ lệ phân loại sai. Thành phố điều chỉnh lịch thu gom và tiếp tục mở rộng chương trình.'
+ 'Một trong những giải pháp quan trọng là khuyến khích người dân sử dụng túi vải, bình nước cá nhân và các sản phẩm có thể tái sử dụng.Chính quyền đô thị cần tăng cường phân loại rác tại nguồn, cải thiện hệ thống thu gom và mở rộng các chương trình tái chế nhựa.Các doanh nghiệp có thể góp phần giảm ô nhiễm bằng cách hạn chế bao bì nhựa dùng một lần và phát triển những vật liệu thân thiện với môi trường.Hoạt động tuyên truyền tại trường học và khu dân cư giúp nâng cao nhận thức về tác hại của rác thải nhựa đối với môi trường.Sự phối hợp giữa chính quyền, doanh nghiệp và cộng đồng sẽ tạo điều kiện xây dựng đô thị sạch hơn và phát triển bền vững.'
 
 ];
 

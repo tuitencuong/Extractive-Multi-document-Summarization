@@ -22,7 +22,17 @@
       </header>
 
       <section class="workspace" id="workspace">
-        <aside class="input-pane" aria-label="Nguồn văn bản">
+        <nav class="view-switch workspace-tabs" aria-label="Chế độ xem">
+          <button id="inputTabBtn" class="is-active" type="button" aria-pressed="true">Nhập dữ liệu</button>
+          <button id="overviewModeBtn" type="button" aria-pressed="false">Tóm tắt & tổng quan</button>
+          <button id="demoModeBtn" type="button" aria-pressed="false">Demo tương tác</button>
+        </nav>
+        <p id="status" class="status" aria-live="polite"></p>
+        <aside id="inputPanel" class="input-pane" aria-label="Nguồn văn bản">
+          <nav class="view-switch input-mode-switch" aria-label="Nhập dữ liệu cho">
+            <button id="overviewInputBtn" class="is-active" type="button" aria-pressed="true">Đầu vào Tóm tắt & tổng quan</button>
+            <button id="demoInputBtn" type="button" aria-pressed="false">Đầu vào Demo</button>
+          </nav>
           <div class="pane-header">
             <div>
               <p class="eyebrow">Văn bản đầu vào</p>
@@ -53,7 +63,7 @@ Máy bay MS804 của EgyptAir mất liên lạc khi đang trên đường từ P
               <span>Số câu tóm tắt</span>
               <input id="summaryLength" type="number" min="1" max="16" placeholder="Tự động" aria-describedby="lengthHint">
             </label>
-            <button id="runBtn" class="primary-button" type="button">Chạy</button>
+            <button id="runBtn" class="primary-button" type="button">Chạy tóm tắt</button>
           </div>
           <details id="demoSettings" class="demo-settings" hidden open>
             <summary>Tham số demo tương tác</summary>
@@ -67,15 +77,10 @@ Máy bay MS804 của EgyptAir mất liên lạc khi đang trên đường từ P
             <button id="loadDemoSampleBtn" class="secondary-button" type="button">Nạp mẫu 3 tài liệu</button>
           </details>
           <p id="lengthHint" class="input-hint">Để trống: tự chọn 3–10 câu theo số câu hợp lệ. Nhập số: chọn tối đa số câu đại diện.</p>
-          <p id="status" class="status" aria-live="polite"></p>
+
         </aside>
 
-        <div id="splitter" class="splitter" role="separator" tabindex="0" aria-label="Kéo để đổi chiều rộng vùng nhập" aria-orientation="vertical" aria-valuemin="24" aria-valuemax="60" aria-valuenow="32" title="Kéo trái/phải · phím mũi tên · nhấp đúp để đặt lại"><span>⋮</span></div>
-        <section class="result-pane" aria-label="Kết quả trực quan">
-          <nav class="view-switch" aria-label="Chế độ xem">
-            <button id="overviewModeBtn" class="is-active" type="button" aria-pressed="true">Tóm tắt & tổng quan</button>
-            <button id="demoModeBtn" type="button" aria-pressed="false">Demo tương tác</button>
-          </nav>
+        <section class="result-pane" hidden aria-label="Kết quả trực quan">
           <div id="overviewResults">
           <div class="result-header">
             <nav class="step-tabs" aria-label="Các bước">

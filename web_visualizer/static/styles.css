@@ -723,3 +723,13 @@ button:focus-visible, summary:focus-visible, .splitter:focus-visible { outline: 
 @media (max-width:720px) { .step-tabs {grid-template-columns:repeat(3,minmax(0,1fr));} .lambda-controls {grid-template-columns:1fr 80px;} .lambda-controls button {grid-column:1/-1;} }
 #interactiveDemo .sort-verdict strong { color: #fff !important; }
 #interactiveDemo .sort-verdict p { color: #e1fff7 !important; }
+
+/* Input has its own page so visualizations use the full workspace width. */
+.workspace { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.workspace-tabs { border: 1px solid var(--line); border-radius: 16px; flex-wrap: wrap; }
+.workspace .input-pane { position: static; max-height: none; overflow: visible; }
+.input-mode-switch { padding: 0 0 18px; margin-bottom: 22px; flex-wrap: wrap; }
+.text-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; }
+.text-inputs .text-box { margin: 0; }
+.input-pane .file-picker { margin-top: 18px; }
+.km-lesson-toolbar { flex-wrap: wrap; }

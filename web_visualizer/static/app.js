@@ -265,6 +265,7 @@ async function runSummarizer(nextStep = "preprocess") {
   }
   runBtn.disabled = true;
   document.querySelector("#applyLambdaBtn").disabled = true;
+  for (const id of ["inputTabBtn", "overviewInputBtn", "demoInputBtn"]) document.getElementById(id).disabled = true;
   document.querySelector("#overviewModeBtn").disabled = true;
   document.querySelector("#demoModeBtn").disabled = true;
   document.querySelector(".result-pane").setAttribute("aria-busy", "true");
@@ -291,10 +292,12 @@ async function runSummarizer(nextStep = "preprocess") {
         [payload.kmeans.k, "cụm K-means"], [payload.final.length, "câu tóm tắt"]
       ].map(([value, label]) => `<div><strong>${value}</strong><span>${label}</span></div>`).join("");
       const counts = window.PipelineDemo.stepCounts();
+      showPage("demo");
       setStatus(`Đã tính demo · ${counts.source} bước gốc + 1 bước Sort = ${counts.total} bước · ${payload.final.length} câu tóm tắt.`);
     } else {
       resultData = payload;
       renderAll(payload);
+      showPage("overview");
       activateStep(nextStep);
       document.querySelector("#lambdaStatus").textContent = `λ đang dùng: ${payload.stats.lambda}`;
       setStatus(`Đã tạo ${payload.stats.summaryLength} câu · ${payload.stats.summaryMode === "auto" ? "chế độ tự động" : "theo số câu yêu cầu"}.`);
@@ -303,6 +306,7 @@ async function runSummarizer(nextStep = "preprocess") {
     setStatus(error.message, true);
   } finally {
     runBtn.disabled = false;
+    for (const id of ["inputTabBtn", "overviewInputBtn", "demoInputBtn"]) document.getElementById(id).disabled = false;
     document.querySelector("#applyLambdaBtn").disabled = !resultData;
     document.querySelector("#overviewModeBtn").disabled = false;
     document.querySelector("#demoModeBtn").disabled = false;
@@ -337,57 +341,60 @@ tabs.forEach((tab) => {
 nextButtons.forEach((button) => {
   button.addEventListener("click", () => activateStep(button.dataset.next));
 });
-// The divider supports mouse, touch, keyboard and keeps the preferred width.
-const workspace = document.querySelector("#workspace");
-const splitter = document.querySelector("#splitter");
-let panePercent = 32;
-try { panePercent = Number(localStorage.getItem("inputPanePercent")) || 32; } catch {}
-function resizePane(percent) {
-  panePercent = Math.max(24, Math.min(60, percent));
-  workspace.style.setProperty("--input-width", `${panePercent}%`);
-  splitter.setAttribute("aria-valuenow", Math.round(panePercent));
-  try { localStorage.setItem("inputPanePercent", panePercent); } catch {}
+// Keep independent drafts, including uploaded files, for each input mode.
+const inputDrafts = {};
+let activePage = "input";
+function saveInputDraft() {
+  inputDrafts[viewMode] = {
+    texts: [...textInputs.querySelectorAll("textarea")].map(field => field.value),
+    files: [...fileInput.files], length: summaryLength.value,
+    status: statusEl.textContent, error: statusEl.classList.contains("is-error")
+  };
 }
-resizePane(panePercent);
-splitter.addEventListener("pointerdown", event => {
-  if (event.button !== 0) return;
-  splitter.setPointerCapture(event.pointerId);
-  document.body.classList.add("is-resizing");
-});
-splitter.addEventListener("pointermove", event => {
-  if (!splitter.hasPointerCapture(event.pointerId)) return;
-  const rect = workspace.getBoundingClientRect();
-  resizePane(100 * (event.clientX - rect.left) / rect.width);
-});
-function stopResizing(event) {
-  if (splitter.hasPointerCapture(event.pointerId)) splitter.releasePointerCapture(event.pointerId);
-  document.body.classList.remove("is-resizing");
-}
-splitter.addEventListener("pointerup", stopResizing);
-splitter.addEventListener("pointercancel", stopResizing);
-splitter.addEventListener("lostpointercapture", () => document.body.classList.remove("is-resizing"));
-splitter.addEventListener("dblclick", () => resizePane(32));
-splitter.addEventListener("keydown", event => {
-  if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-  event.preventDefault();
-  resizePane(event.key === "Home" ? 24 : event.key === "End" ? 60 : panePercent + (event.key === "ArrowLeft" ? -2 : 2));
-});
-
-function setViewMode(mode) {
-  window.PipelineDemo.stop();
-  viewMode = mode;
+function setInputMode(mode) {
+  if (mode !== viewMode) {
+    saveInputDraft();
+    viewMode = mode;
+    const draft = inputDrafts[mode] || {texts: [""], files: [], length: "", status: ""};
+    textInputs.innerHTML = "";
+    inputCount = 0;
+    draft.texts.forEach(addTextBox);
+    const transfer = new DataTransfer();
+    draft.files.forEach(file => transfer.items.add(file));
+    fileInput.files = transfer.files;
+    summaryLength.value = draft.length;
+    renderFiles();
+    setStatus(draft.status, draft.error);
+  }
   const isDemo = mode === "demo";
-  document.querySelector("#overviewResults").hidden = isDemo;
-  document.querySelector("#interactiveDemo").hidden = !isDemo;
   document.querySelector("#demoSettings").hidden = !isDemo;
-  for (const [id, active] of [["overviewModeBtn", !isDemo], ["demoModeBtn", isDemo]]) {
+  runBtn.textContent = isDemo ? "Chạy demo" : "Chạy tóm tắt";
+  for (const [id, active] of [["overviewInputBtn", !isDemo], ["demoInputBtn", isDemo]]) {
     const button = document.querySelector(`#${id}`);
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", active);
   }
-  setStatus(isDemo ? "Chế độ demo: nhập ít nhất 5 câu hợp lệ hoặc nạp văn bản mẫu rồi nhấn Chạy." : "Nhấn Chạy để tạo bản tóm tắt theo pipeline gốc.");
+}
+function showPage(page) {
+  window.PipelineDemo.stop();
+  activePage = page;
+  document.querySelector("#inputPanel").hidden = page !== "input";
+  document.querySelector(".result-pane").hidden = page === "input";
+  document.querySelector("#overviewResults").hidden = page !== "overview";
+  document.querySelector("#interactiveDemo").hidden = page !== "demo";
+  for (const [id, target] of [["inputTabBtn", "input"], ["overviewModeBtn", "overview"], ["demoModeBtn", "demo"]]) {
+    const button = document.querySelector(`#${id}`);
+    button.classList.toggle("is-active", page === target);
+    button.setAttribute("aria-pressed", page === target);
+  }
+}
+function setViewMode(mode) {
+  setInputMode(mode);
+  showPage(mode);
 }
 function loadDemoSample() {
+  setInputMode("demo");
+  showPage("input");
   textInputs.innerHTML = "";
   inputCount = 0;
   window.PipelineDemo.sample().forEach(addTextBox);
@@ -400,6 +407,9 @@ function loadDemoSample() {
   renderFiles();
   setStatus(`Đã nạp mẫu và tham số gốc (K = ${defaults.clusters}). Nhấn Chạy để xem demo.`);
 }
+document.querySelector("#inputTabBtn").addEventListener("click", () => showPage("input"));
+document.querySelector("#overviewInputBtn").addEventListener("click", () => setInputMode("overview"));
+document.querySelector("#demoInputBtn").addEventListener("click", () => setInputMode("demo"));
 document.querySelector("#overviewModeBtn").addEventListener("click", () => setViewMode("overview"));
 document.querySelector("#demoModeBtn").addEventListener("click", () => setViewMode("demo"));
 document.querySelector("#demoSampleBtn").addEventListener("click", loadDemoSample);
@@ -412,7 +422,7 @@ document.querySelector("#demoCopyBtn").addEventListener("click", async () => {
   } catch { setStatus("Không thể sao chép. Hãy chọn văn bản và sao chép thủ công.", true); }
 });
 document.addEventListener("keydown", event => {
-  if (viewMode !== "demo" || !demoData || event.defaultPrevented || event.ctrlKey || event.altKey || event.metaKey) return;
+  if (activePage !== "demo" || !demoData || event.defaultPrevented || event.ctrlKey || event.altKey || event.metaKey) return;
   if (event.target.closest("input, textarea, select, button, summary, [contenteditable], #splitter")) return;
   if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
   event.preventDefault();

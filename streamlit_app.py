@@ -10,7 +10,7 @@ import streamlit as st
 from web_visualizer.streamlit_bridge import render_document, dispatch_request
 
 
-st.set_page_config(page_title="Tóm tắt đa văn bản", page_icon="📝", layout="wide")
+st.set_page_config(page_title="Tóm tắt đa văn bản", page_icon="😵‍💫", layout="wide")
 st.html("""<style>
   .stMainBlockContainer { max-width: none; padding: 3.5rem 1rem .5rem; }
 </style>""")
