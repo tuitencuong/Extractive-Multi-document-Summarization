@@ -69,14 +69,14 @@ Máy bay MS804 của EgyptAir mất liên lạc khi đang trên đường từ P
             <summary>Tham số demo tương tác</summary>
             <div class="demo-settings-grid">
               <label>Số cụm K<input id="demoK" type="number" min="1" max="30" value="{{ demo_defaults.clusters }}" placeholder="Tự động"></label>
-              <label>Chế độ MMR<select id="demoMode"><option value="train">Train · như pipeline gốc</option><option value="test">Test · tối đa 16 câu</option></select></label>
+              <label>Chế độ MMR<select id="demoMode"><option value="train">Train · 70% ứng viên</option><option value="test">Test · 70% ứng viên</option></select></label>
               <label>λ MMR<input id="demoLambda" type="number" min="0" max="1" step="0.05" value="{{ demo_defaults['lambda'] }}"></label>
               <label>Ngưỡng cosine<input id="demoCosine" type="number" min="0" max="1" step="0.05" value="{{ demo_defaults.cosineThreshold }}"></label>
             </div>
             <p class="input-hint">Centroid dùng cosine + lọc trùng. Cần 5–300 câu hợp lệ; tối đa 30 tài liệu. Đổi tham số rồi nhấn Chạy để tính lại.</p>
             <button id="loadDemoSampleBtn" class="secondary-button" type="button">Nạp mẫu 3 tài liệu</button>
           </details>
-          <p id="lengthHint" class="input-hint">Để trống: tự chọn 3–10 câu theo số câu hợp lệ. Nhập số: chọn tối đa số câu đại diện.</p>
+          <p id="lengthHint" class="input-hint">Để trống: giữ 70% ứng viên sau Centroid, làm tròn lên. Nhập số: giới hạn thêm kết quả MMR; không bổ sung câu.</p>
 
         </aside>
 
@@ -100,7 +100,7 @@ Máy bay MS804 của EgyptAir mất liên lạc khi đang trên đường từ P
               </button>
               <button class="step-tab" data-step="summary" type="button" disabled>
                 <span>6</span>
-                <strong>Chọn & bổ sung</strong>
+                <strong>Câu đã chọn</strong>
               </button>
               <button class="step-tab" data-step="sort" type="button" disabled><span>7</span><strong>Sort & kết quả</strong></button>
             </nav>

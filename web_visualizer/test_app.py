@@ -1,5 +1,6 @@
 """Regression checks for the visualizer's length contract and real cluster traces."""
 import unittest
+import math
 from unittest.mock import patch
 
 from web_visualizer.app import app
@@ -29,7 +30,11 @@ class VisualizerTests(unittest.TestCase):
             with self.subTest(count=count):
                 data = self.post(count, '')
                 self.assertEqual(data['stats']['summaryMode'], 'auto')
-                self.assertEqual(data['stats']['summaryLength'], expected)
+                self.assertEqual(data['stats']['clusterCount'], expected)
+                target = math.ceil(0.7 * data['stats']['centroidCount'])
+                self.assertEqual(data['stats']['mmrCount'], target)
+                self.assertEqual(data['stats']['summaryLength'], target)
+                self.assertTrue(all(s['reason'] == 'mmr' for s in data['summary']))
                 members = [sid for cluster in data['steps']['clusters'] for sid in cluster['members']]
                 self.assertEqual(len(members), count)
                 self.assertEqual(len(set(members)), count)
@@ -48,7 +53,8 @@ class VisualizerTests(unittest.TestCase):
         self.assertEqual(len(data['summary']), 1)
         self.assertEqual(data['summary'][0]['id'], data['steps']['preprocess']['sentences'][data['steps']['mmr'][0]['sentenceIndex']]['id'])
         data = self.post(4, '16')
-        self.assertEqual(len(data['summary']), 3)
+        self.assertEqual(len(data['summary']), data['stats']['mmrCount'])
+        self.assertEqual(data['stats']['mmrCount'], math.ceil(0.7 * data['stats']['centroidCount']))
 
     def test_invalid_lengths_and_empty_input(self):
         for length in ['0', '-1', '17', '1.5', 'abc']:

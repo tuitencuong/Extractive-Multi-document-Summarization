@@ -73,7 +73,7 @@ PAGE = r'''<!doctype html>
 
 <style>
 
-:root{--ink:#1d2942;--muted:#63708a;--line:#e2e8f2;--blue:#5268e8;--teal:#138b77;--orange:#d9822b;--paper:#fff;--wash:#f5f7fc;--shadow:0 12px 34px #21335b12}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 5% 0,#e8edff,transparent 34rem),#f5f7fc;color:var(--ink);font:15px/1.55 Inter,system-ui,"Segoe UI",sans-serif}main{width:min(1240px,100%);margin:auto;padding:24px 20px 40px}.hero{padding:28px clamp(20px,4vw,42px);border-radius:24px;background:linear-gradient(120deg,#1b284f,#455dc5);color:white;box-shadow:var(--shadow)}.eyebrow{color:#b9c7ff;font-size:11px;font-weight:800;letter-spacing:.14em}.hero h1{margin:8px 0;font-size:clamp(25px,4vw,38px);line-height:1.15}.hero p{max-width:850px;margin:10px 0 0;color:#e3e9ff}.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.input-card{position:static;min-width:0}.card h2{font-size:18px;margin:0 0 8px}.help{color:var(--muted);font-size:13px;margin:0 0 14px}#docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}.doc{margin:4px 0;min-width:0}.doc textarea{min-height:86px}.doc label{display:block;margin-bottom:5px;font-size:12px;font-weight:800;color:#52607b}.doc textarea{width:100%;min-height:86px;resize:vertical;border:1px solid #d9e0ed;border-radius:11px;padding:10px 11px;font:13px/1.6 Inter,system-ui,sans-serif;color:var(--ink);background:#fbfcff}.doc textarea:focus,input:focus,select:focus{outline:3px solid #5268e82a;border-color:var(--blue)}.settings{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0}.setting label{display:block;font-size:11px;font-weight:800;color:var(--muted);margin-bottom:4px}.setting input,.setting select{width:100%;height:38px;padding:6px 9px;border:1px solid #d9e0ed;border-radius:9px;background:#fff;color:var(--ink);font:inherit}.wide{grid-column:1/-1}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}button{border:1px solid #d5ddec;border-radius:10px;background:#fff;padding:9px 12px;color:#35415b;font:700 12px Inter,system-ui,sans-serif;cursor:pointer}button:hover{border-color:#9eacee;background:#f7f8ff}button.primary{background:var(--blue);border-color:var(--blue);color:#fff}button.primary:hover{background:#4157ce}button:disabled{opacity:.45;cursor:default}.hint{color:#758098;font-size:11px;margin:12px 0 0}.status{display:none;margin-top:12px;padding:10px 12px;border-radius:10px;font-size:12px}.status.error{display:block;background:#fff0ed;color:#9a3826;border:1px solid #f3c4ba}.status.info{display:block;background:#edf8f5;color:#216d5b;border:1px solid #c4e8dd}.workspace{min-width:0}.empty{min-height:400px;display:grid;place-items:center;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}.tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 0 12px}.tabs button{white-space:nowrap}.tabs button.active{background:#e8ecff;border-color:#b9c5ff;color:#344ab8}.stage{display:none}.stage.active{display:block}.stage-title{display:flex;gap:12px;align-items:flex-start;margin-bottom:15px}.stage-num{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:13px;background:#edf0ff;color:#465bd0;font-size:13px;font-weight:900}.stage-title h2{margin:0;font-size:21px}.stage-title p{margin:3px 0 0;color:var(--muted);font-size:13px}.metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:12px 0}.metric{padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:#fafbff}.metric b{display:block;font-size:19px;font-variant-numeric:tabular-nums}.metric span{color:var(--muted);font-size:11px}.note{padding:11px 13px;border:1px solid #dde5ff;border-left:4px solid #6477ea;border-radius:9px;background:#f5f7ff;color:#3e4b6c;font-size:12px;margin:12px 0}.note.warn{border-color:#f0dfc4;border-left-color:var(--orange);background:#fff9ef;color:#76531f}.scroll{overflow:auto;border:1px solid var(--line);border-radius:11px;margin:12px 0}table{width:100%;min-width:540px;border-collapse:collapse;background:#fff;font-size:12px}th,td{padding:9px 10px;text-align:left;vertical-align:top;border-bottom:1px solid #ebeff5}thead th{position:sticky;top:0;background:#f5f7fc;color:#394660;font-size:11px}tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}td.num{white-space:nowrap;font-variant-numeric:tabular-nums}.small{font-size:11px;color:var(--muted)}.sentence{min-width:230px;max-width:430px}.chips{display:flex;flex-wrap:wrap;gap:5px}.chip{display:inline-block;padding:4px 7px;border:1px solid #dfe5ef;border-radius:7px;background:#fbfcff;font-size:11px;color:#44516c}.query{border:1px solid #b9e4d7;border-radius:11px;background:#effaf6;padding:12px 14px;margin:12px 0}.query b{display:block;color:#16836a;font-size:11px;letter-spacing:.06em;margin-bottom:5px}.player{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:9px;margin:12px 0}.player span{min-width:115px;text-align:center;color:var(--muted);font-size:12px;font-weight:700}.plot{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;background:#fff}.legend{display:flex;flex-wrap:wrap;gap:9px;margin:9px 0;color:var(--muted);font-size:11px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px}.won{background:#edf9f4}.lost{background:#fff8ef}.formula{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fafbfe;font:12px/1.7 ui-monospace,Consolas,monospace;overflow:auto}.details{border-top:1px solid var(--line);padding:10px 0}.details summary{cursor:pointer;color:#4659c0;font-weight:750;font-size:12px}.final-list{padding-left:22px}.final-list li{padding:9px 0;border-bottom:1px solid #edf0f5}.final-list small{display:block;color:var(--muted);margin-bottom:3px}.pill{display:inline-block;padding:3px 7px;border-radius:99px;background:#e8f7f1;color:#13775f;font-size:10px;font-weight:800}.muted{color:var(--muted)}
+:root{--ink:#1d2942;--muted:#63708a;--line:#e2e8f2;--blue:#5268e8;--teal:#4a2f6f;--orange:#d9822b;--paper:#fff;--wash:#f5f7fc;--shadow:0 12px 34px #21335b12}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 5% 0,#e8edff,transparent 34rem),#f5f7fc;color:var(--ink);font:15px/1.55 Inter,system-ui,"Segoe UI",sans-serif}main{width:min(1240px,100%);margin:auto;padding:24px 20px 40px}.hero{padding:28px clamp(20px,4vw,42px);border-radius:24px;background:linear-gradient(120deg,#1b284f,#455dc5);color:white;box-shadow:var(--shadow)}.eyebrow{color:#b9c7ff;font-size:11px;font-weight:800;letter-spacing:.14em}.hero h1{margin:8px 0;font-size:clamp(25px,4vw,38px);line-height:1.15}.hero p{max-width:850px;margin:10px 0 0;color:#e3e9ff}.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.input-card{position:static;min-width:0}.card h2{font-size:18px;margin:0 0 8px}.help{color:var(--muted);font-size:13px;margin:0 0 14px}#docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}.doc{margin:4px 0;min-width:0}.doc textarea{min-height:86px}.doc label{display:block;margin-bottom:5px;font-size:12px;font-weight:800;color:#52607b}.doc textarea{width:100%;min-height:86px;resize:vertical;border:1px solid #d9e0ed;border-radius:11px;padding:10px 11px;font:13px/1.6 Inter,system-ui,sans-serif;color:var(--ink);background:#fbfcff}.doc textarea:focus,input:focus,select:focus{outline:3px solid #5268e82a;border-color:var(--blue)}.settings{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0}.setting label{display:block;font-size:11px;font-weight:800;color:var(--muted);margin-bottom:4px}.setting input,.setting select{width:100%;height:38px;padding:6px 9px;border:1px solid #d9e0ed;border-radius:9px;background:#fff;color:var(--ink);font:inherit}.wide{grid-column:1/-1}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}button{border:1px solid #d5ddec;border-radius:10px;background:#fff;padding:9px 12px;color:#35415b;font:700 12px Inter,system-ui,sans-serif;cursor:pointer}button:hover{border-color:#9eacee;background:#f7f8ff}button.primary{background:var(--blue);border-color:var(--blue);color:#fff}button.primary:hover{background:#4157ce}button:disabled{opacity:.45;cursor:default}.hint{color:#758098;font-size:11px;margin:12px 0 0}.status{display:none;margin-top:12px;padding:10px 12px;border-radius:10px;font-size:12px}.status.error{display:block;background:#fff0ed;color:#9a3826;border:1px solid #f3c4ba}.status.info{display:block;background:#f2edf8;color:#422b63;border:1px solid #d3c6e6}.workspace{min-width:0}.empty{min-height:400px;display:grid;place-items:center;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}.tabs{display:flex;gap:7px;overflow-x:auto;padding:2px 0 12px}.tabs button{white-space:nowrap}.tabs button.active{background:#e8ecff;border-color:#b9c5ff;color:#344ab8}.stage{display:none}.stage.active{display:block}.stage-title{display:flex;gap:12px;align-items:flex-start;margin-bottom:15px}.stage-num{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:13px;background:#edf0ff;color:#465bd0;font-size:13px;font-weight:900}.stage-title h2{margin:0;font-size:21px}.stage-title p{margin:3px 0 0;color:var(--muted);font-size:13px}.metric-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:12px 0}.metric{padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:#fafbff}.metric b{display:block;font-size:19px;font-variant-numeric:tabular-nums}.metric span{color:var(--muted);font-size:11px}.note{padding:11px 13px;border:1px solid #dde5ff;border-left:4px solid #6477ea;border-radius:9px;background:#f5f7ff;color:#3e4b6c;font-size:12px;margin:12px 0}.note.warn{border-color:#f0dfc4;border-left-color:var(--orange);background:#fff9ef;color:#76531f}.scroll{overflow:auto;border:1px solid var(--line);border-radius:11px;margin:12px 0}table{width:100%;min-width:540px;border-collapse:collapse;background:#fff;font-size:12px}th,td{padding:9px 10px;text-align:left;vertical-align:top;border-bottom:1px solid #ebeff5}thead th{position:sticky;top:0;background:#f5f7fc;color:#394660;font-size:11px}tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}td.num{white-space:nowrap;font-variant-numeric:tabular-nums}.small{font-size:11px;color:var(--muted)}.sentence{min-width:230px;max-width:430px}.chips{display:flex;flex-wrap:wrap;gap:5px}.chip{display:inline-block;padding:4px 7px;border:1px solid #dfe5ef;border-radius:7px;background:#fbfcff;font-size:11px;color:#44516c}.query{border:1px solid #cbbbe2;border-radius:11px;background:#f4f0f9;padding:12px 14px;margin:12px 0}.query b{display:block;color:#472e6b;font-size:11px;letter-spacing:.06em;margin-bottom:5px}.player{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:9px;margin:12px 0}.player span{min-width:115px;text-align:center;color:var(--muted);font-size:12px;font-weight:700}.plot{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;background:#fff}.legend{display:flex;flex-wrap:wrap;gap:9px;margin:9px 0;color:var(--muted);font-size:11px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px}.won{background:#f2eef8}.lost{background:#fff8ef}.formula{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fafbfe;font:12px/1.7 ui-monospace,Consolas,monospace;overflow:auto}.details{border-top:1px solid var(--line);padding:10px 0}.details summary{cursor:pointer;color:#4659c0;font-weight:750;font-size:12px}.final-list{padding-left:22px}.final-list li{padding:9px 0;border-bottom:1px solid #edf0f5}.final-list small{display:block;color:var(--muted);margin-bottom:3px}.pill{display:inline-block;padding:3px 7px;border-radius:99px;background:#eee9f6;color:#402961;font-size:10px;font-weight:800}.muted{color:var(--muted)}
 .mmr-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
 .mmr-branch{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fbfcff;min-width:0}
 .mmr-branch h4{margin:0 0 7px;font-size:13px}
@@ -81,7 +81,7 @@ PAGE = r'''<!doctype html>
 .mmr-branch.rel{border-top:4px solid var(--blue)}.mmr-branch.red{border-top:4px solid var(--orange)}.mmr-branch.score{border-top:4px solid var(--teal)}
 .mmr-eq{margin-top:7px;padding:9px;border-radius:8px;background:#f2f5fb;font:12px/1.7 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
 .max-red{background:#fff3df!important;font-weight:800;color:#895514}
-.score-match{color:#13775f;font-weight:800}.score-mismatch{padding:10px 12px;border:1px solid #f1c4ba;background:#fff2ef;border-radius:9px;color:#963b2b;font-size:12px;margin:8px 0}
+.score-match{color:#402961;font-weight:800}.score-mismatch{padding:10px 12px;border:1px solid #f1c4ba;background:#fff2ef;border-radius:9px;color:#963b2b;font-size:12px;margin:8px 0}
 @media(max-width:850px){.mmr-flow{grid-template-columns:1fr}}
 @media(max-width:850px){main{padding:14px 10px 28px}.layout{grid-template-columns:1fr}.input-card{position:static}.doc textarea{min-height:82px}.hero{border-radius:18px}.card{padding:14px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
 
@@ -101,7 +101,7 @@ PAGE = r'''<!doctype html>
 /* Một timeline toàn cục: mỗi slide là một thao tác nhỏ của thuật toán. */
 .flow-journey{margin:18px 0 12px}.flow-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;margin:0 2px 12px}.flow-heading h2{margin:0;font-size:21px;letter-spacing:-.03em}.flow-heading p{margin:0;max-width:380px;color:var(--muted);font-size:12px}.flow-kicker{display:block;color:#6876d9;font-size:10px;font-weight:850;letter-spacing:.14em;margin-bottom:3px}
 #flow-groups{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:0}.pills#flow-groups button{min-height:55px;display:flex;align-items:center;gap:8px;text-align:left;white-space:normal;padding:9px;border-radius:12px;background:#fff;font-size:11px;line-height:1.35}.pills#flow-groups button.on{color:#fff;background:linear-gradient(145deg,#5368e8,#414fc7);border-color:#5368e8}.flow-group-number{display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border-radius:8px;background:#edf0ff;color:#5267e8;font-size:10px;font-weight:900}.pills#flow-groups button.on .flow-group-number{background:#ffffff2e;color:white}
-.flow-controls{display:grid;grid-template-columns:auto auto auto minmax(150px,auto) 1fr;align-items:center;gap:8px;padding:10px;margin:13px 0 14px;border:1px solid var(--line);border-radius:14px;background:#ffffffdb;box-shadow:0 5px 16px #21335b0b}.flow-controls button{min-height:39px}.flow-controls #flow-play{background:var(--blue);color:white;border-color:var(--blue)}.flow-controls button:disabled{opacity:.4}.flow-controls span{justify-self:end;font-size:12px;font-weight:800;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}.flow-controls progress{grid-column:1/-1;width:100%;height:7px;accent-color:var(--blue)}.flow-card{padding:clamp(14px,2.2vw,24px)}.flow-step-heading{display:flex;align-items:flex-start;gap:12px;margin-bottom:17px}.flow-step-badge{flex:0 0 44px;height:44px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#e9edff,#dce3ff);color:#495ed3;font-size:15px;font-weight:900}.flow-step-copy{min-width:0;flex:1}.flow-step-kicker{margin-bottom:4px;color:#6876d9;font-size:10px;font-weight:850;letter-spacing:.1em}.flow-step-copy h2{margin:0;font-size:clamp(19px,2.4vw,26px);letter-spacing:-.03em;line-height:1.25}.flow-step-copy p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.65}.flow-live{margin-top:3px;padding:5px 7px;border-radius:8px;background:#effaf6;border:1px solid #cceee3;color:#13836e;font-size:9px;font-weight:900;white-space:nowrap}.flow-strip{padding:11px;margin-bottom:16px;border:1px solid #e5eaf4;border-radius:13px;background:#f8faff}.flow-strip-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px;margin-bottom:8px;color:#3c4863;font-size:10px}.flow-strip-head span{color:var(--muted);font-weight:500}#flow-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:5px}.flow-tile{min-width:0;padding:7px;border-radius:8px;background:#aab3c1;color:white;font-size:11px;font-weight:850;line-height:1.3}.flow-tile small{display:block;margin-top:3px;font-size:9px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ffffffdc}.flow-tile.active{outline:3px solid #f3bd57;outline-offset:1px}.flow-tile.selected{background:#16866f}.flow-tile .flow-sub{opacity:.9}.flow-substep{display:inline-flex;align-items:center;gap:6px;margin:2px 0 12px;padding:5px 8px;border:1px solid #e0e7f4;border-radius:8px;background:#f8faff;color:#596783;font-size:11px;font-weight:750}.flow-substep b{color:#5267e8}.flow-equation{padding:12px 14px;border:1px solid #e0e7f5;border-radius:11px;background:#f8faff;font:12px/1.75 ui-monospace,Consolas,monospace;overflow-x:auto;margin:10px 0}.flow-focus{padding:12px 14px;margin:10px 0;border-left:4px solid #5268e8;border-radius:9px;background:#f3f6ff}.flow-focus.good{border-left-color:#15977d;background:#effaf6}.flow-focus.warn{border-left-color:#d9822b;background:#fff8ee}.flow-focus b{display:block;margin-bottom:4px}.flow-result{padding:12px 14px;border:1px solid #bfe9db;border-radius:11px;background:#f0fbf7;color:#1d6858;margin:12px 0}.flow-table-caption{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:15px 0 7px}.flow-table-caption h3{font-size:14px;margin:0}.flow-table-caption span{font-size:10px;color:var(--muted)}.flow-inline-list{display:flex;flex-wrap:wrap;gap:6px}.flow-inline-list span{padding:5px 8px;border:1px solid #dce4f1;border-radius:8px;background:#fff;font-size:11px}.flow-color-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}.flow-vector{font-family:ui-monospace,Consolas,monospace;font-size:11px;overflow-wrap:anywhere}.flow-hidden-detail{margin-top:12px;border-top:1px solid var(--line);padding-top:7px}.flow-hidden-detail summary{cursor:pointer;color:#4a5dc8;font-size:12px;font-weight:800;padding:7px 0}.flow-card .note{line-height:1.65}.flow-card .scroll{max-width:100%}
+.flow-controls{display:grid;grid-template-columns:auto auto auto minmax(150px,auto) 1fr;align-items:center;gap:8px;padding:10px;margin:13px 0 14px;border:1px solid var(--line);border-radius:14px;background:#ffffffdb;box-shadow:0 5px 16px #21335b0b}.flow-controls button{min-height:39px}.flow-controls #flow-play{background:var(--blue);color:white;border-color:var(--blue)}.flow-controls button:disabled{opacity:.4}.flow-controls span{justify-self:end;font-size:12px;font-weight:800;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}.flow-controls progress{grid-column:1/-1;width:100%;height:7px;accent-color:var(--blue)}.flow-card{padding:clamp(14px,2.2vw,24px)}.flow-step-heading{display:flex;align-items:flex-start;gap:12px;margin-bottom:17px}.flow-step-badge{flex:0 0 44px;height:44px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#e9edff,#dce3ff);color:#495ed3;font-size:15px;font-weight:900}.flow-step-copy{min-width:0;flex:1}.flow-step-kicker{margin-bottom:4px;color:#6876d9;font-size:10px;font-weight:850;letter-spacing:.1em}.flow-step-copy h2{margin:0;font-size:clamp(19px,2.4vw,26px);letter-spacing:-.03em;line-height:1.25}.flow-step-copy p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.65}.flow-live{margin-top:3px;padding:5px 7px;border-radius:8px;background:#f4f0f9;border:1px solid #dbcfeb;color:#462d69;font-size:9px;font-weight:900;white-space:nowrap}.flow-strip{padding:11px;margin-bottom:16px;border:1px solid #e5eaf4;border-radius:13px;background:#f8faff}.flow-strip-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px;margin-bottom:8px;color:#3c4863;font-size:10px}.flow-strip-head span{color:var(--muted);font-weight:500}#flow-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:5px}.flow-tile{min-width:0;padding:7px;border-radius:8px;background:#aab3c1;color:white;font-size:11px;font-weight:850;line-height:1.3}.flow-tile small{display:block;margin-top:3px;font-size:9px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ffffffdc}.flow-tile.active{outline:3px solid #f3bd57;outline-offset:1px}.flow-tile.selected{background:#492f6d}.flow-tile .flow-sub{opacity:.9}.flow-substep{display:inline-flex;align-items:center;gap:6px;margin:2px 0 12px;padding:5px 8px;border:1px solid #e0e7f4;border-radius:8px;background:#f8faff;color:#596783;font-size:11px;font-weight:750}.flow-substep b{color:#5267e8}.flow-equation{padding:12px 14px;border:1px solid #e0e7f5;border-radius:11px;background:#f8faff;font:12px/1.75 ui-monospace,Consolas,monospace;overflow-x:auto;margin:10px 0}.flow-focus{padding:12px 14px;margin:10px 0;border-left:4px solid #5268e8;border-radius:9px;background:#f3f6ff}.flow-focus.good{border-left-color:#503478;background:#f4f0f9}.flow-focus.warn{border-left-color:#d9822b;background:#fff8ee}.flow-focus b{display:block;margin-bottom:4px}.flow-result{padding:12px 14px;border:1px solid #d1c3e5;border-radius:11px;background:#f5f2f9;color:#3e285d;margin:12px 0}.flow-table-caption{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:15px 0 7px}.flow-table-caption h3{font-size:14px;margin:0}.flow-table-caption span{font-size:10px;color:var(--muted)}.flow-inline-list{display:flex;flex-wrap:wrap;gap:6px}.flow-inline-list span{padding:5px 8px;border:1px solid #dce4f1;border-radius:8px;background:#fff;font-size:11px}.flow-color-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}.flow-vector{font-family:ui-monospace,Consolas,monospace;font-size:11px;overflow-wrap:anywhere}.flow-hidden-detail{margin-top:12px;border-top:1px solid var(--line);padding-top:7px}.flow-hidden-detail summary{cursor:pointer;color:#4a5dc8;font-size:12px;font-weight:800;padding:7px 0}.flow-card .note{line-height:1.65}.flow-card .scroll{max-width:100%}
 @media(max-width:1050px){#flow-groups{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:650px){.flow-heading{align-items:flex-start;flex-direction:column;gap:4px}#flow-groups{grid-template-columns:repeat(2,minmax(0,1fr))}.flow-controls{grid-template-columns:1fr 1.15fr 1fr;padding:8px}.flow-controls button{padding:8px 5px;font-size:11px}.flow-controls span{grid-column:1/-1;justify-self:center}.flow-controls progress{grid-row:4}.flow-step-heading{gap:9px}.flow-step-badge{flex-basis:38px;height:38px}.flow-live{display:none}#flow-strip{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
@@ -112,15 +112,15 @@ PAGE = r'''<!doctype html>
 .algorithm-node b{display:block;font-size:12px;line-height:1.4;color:#263653}
 .algorithm-node small{display:block;margin-top:5px;color:#64718b;font-size:11px;line-height:1.45}
 .algorithm-arrow{display:flex;align-items:center;justify-content:center;flex:0 0 18px;color:#6575d8;font-size:21px;font-weight:900}
-.algorithm-node.primary-node{border-color:#9fafff;background:#f0f3ff}.algorithm-node.good-node{border-color:#b9e7d7;background:#effaf6}.algorithm-node.warn-node{border-color:#efd5ae;background:#fff8ed}
+.algorithm-node.primary-node{border-color:#9fafff;background:#f0f3ff}.algorithm-node.good-node{border-color:#cdbde3;background:#f4f0f9}.algorithm-node.warn-node{border-color:#efd5ae;background:#fff8ed}
 .graph-caption{color:#6a7690;font-size:11px;margin:-4px 0 10px}
 .cosine-panel{border:1px solid #d8e2f3;border-radius:14px;padding:14px;margin:12px 0;background:linear-gradient(145deg,#fbfcff,#f5f8ff)}
 .cosine-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .cosine-score{font-size:25px;font-weight:900;letter-spacing:-.04em;color:#4b5fd0;font-variant-numeric:tabular-nums}
 .cosine-verdict{display:inline-block;padding:5px 9px;border-radius:8px;font-size:11px;font-weight:850}
-.cosine-verdict.pass{background:#e6f8f0;color:#14765e}.cosine-verdict.fail{background:#fff0e4;color:#a45d1e}
+.cosine-verdict.pass{background:#eee9f5;color:#402961}.cosine-verdict.fail{background:#fff0e4;color:#a45d1e}
 .cosine-meter{height:9px;background:#e5eaf4;border-radius:99px;overflow:hidden;margin:8px 0 5px}
-.cosine-meter-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#6479eb,#19a181)}
+.cosine-meter-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#6479eb,#573882)}
 .cosine-threshold-row{position:relative;height:15px;margin:0 0 4px}
 .cosine-threshold-mark{height:15px;width:2px;background:#d9822b;position:absolute;top:0}
 .mmr-network{border:1px solid #dce4f1;border-radius:14px;background:#fbfcff;padding:13px;margin:13px 0}
@@ -128,14 +128,14 @@ PAGE = r'''<!doctype html>
 .mmr-network-node{padding:11px;border:1px solid #d9e2f1;border-radius:10px;background:white;min-width:0}
 .mmr-network-node b{display:block;font-size:12px;margin-bottom:5px}
 .mmr-network-node p{margin:0;color:#63708a;font-size:11px;line-height:1.5;overflow-wrap:anywhere}
-.mmr-network-node.qnode{border-top:4px solid #5268e8}.mmr-network-node.snode{border-top:4px solid #138b77}.mmr-network-node.cnode{border-top:4px solid #d9822b}.mmr-network-node.winnode{border-top:4px solid #138b77;background:#f0fbf7}
+.mmr-network-node.qnode{border-top:4px solid #5268e8}.mmr-network-node.snode{border-top:4px solid #4a2f6f}.mmr-network-node.cnode{border-top:4px solid #d9822b}.mmr-network-node.winnode{border-top:4px solid #4a2f6f;background:#f5f2f9}
 .mmr-network-arrow{text-align:center;color:#6474d7;font-weight:900;font-size:20px;padding:2px}
 .mmr-bars{display:grid;gap:8px;margin:11px 0}
 .mmr-bar-row{display:grid;grid-template-columns:minmax(60px,90px) minmax(60px,1fr) minmax(58px,90px);gap:9px;align-items:center;font-size:11px}
 .mmr-bar-label{font-weight:850;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .mmr-bar-track{height:15px;background:#e9edf5;border-radius:5px;overflow:hidden}
 .mmr-bar-fill{height:100%;min-width:2px;background:linear-gradient(90deg,#8190ec,#5268e8);border-radius:5px}
-.mmr-bar-row.winner .mmr-bar-fill{background:linear-gradient(90deg,#20a487,#138b77)}.mmr-bar-row.winner .mmr-bar-label{color:#13785f}
+.mmr-bar-row.winner .mmr-bar-fill{background:linear-gradient(90deg,#5b3b89,#4a2f6f)}.mmr-bar-row.winner .mmr-bar-label{color:#412a61}
 .mmr-bar-value{text-align:right;font-variant-numeric:tabular-nums;font-weight:750}
 @media(max-width:650px){.algorithm-node{flex-basis:118px;min-width:118px}.mmr-network-grid{grid-template-columns:1fr}.mmr-bar-row{grid-template-columns:55px minmax(45px,1fr) 75px}.cosine-score{font-size:22px}}
 .km-graph-player{margin:12px 0 14px;padding:12px;border:1px solid #e0e7f2;border-radius:14px;background:#fbfcff}
@@ -154,7 +154,7 @@ PAGE = r'''<!doctype html>
 .centroid-cosine-label{font-weight:850;overflow-wrap:anywhere}
 .centroid-cosine-track{height:13px;position:relative;overflow:visible;border-radius:99px;background:#e7ebf4}
 .centroid-cosine-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#8b99f2,#5268e8)}
-.centroid-cosine-fill.passed{background:linear-gradient(90deg,#51c9ac,#138b77)}
+.centroid-cosine-fill.passed{background:linear-gradient(90deg,#855fbb,#4a2f6f)}
 .centroid-cosine-fill.failed{background:linear-gradient(90deg,#f3c37e,#d9822b)}
 .centroid-cosine-threshold{position:absolute;top:-4px;bottom:-4px;width:2px;background:#263653;z-index:2}
 .centroid-cosine-value{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -162,7 +162,7 @@ PAGE = r'''<!doctype html>
 .mmr-state-card{min-width:0;padding:11px;border:1px solid #dfe6f2;border-radius:11px;background:#fff}
 .mmr-state-card b{display:block;margin-bottom:5px;font-size:12px}
 .mmr-state-card p{margin:0;color:#5f6c85;font-size:11px;line-height:1.6;overflow-wrap:anywhere}
-.mmr-state-card.q{border-top:4px solid #5268e8}.mmr-state-card.s{border-top:4px solid #138b77}.mmr-state-card.r{border-top:4px solid #d9822b}
+.mmr-state-card.q{border-top:4px solid #5268e8}.mmr-state-card.s{border-top:4px solid #4a2f6f}.mmr-state-card.r{border-top:4px solid #d9822b}
 .mmr-phase-title{display:flex;align-items:center;gap:9px;margin:14px 0 7px;font-size:14px;font-weight:850}
 .mmr-phase-title span{display:grid;place-items:center;flex:0 0 27px;width:27px;height:27px;border-radius:8px;background:#e9edff;color:#5268e8;font-size:11px}
 @media(max-width:650px){.mmr-state-row{grid-template-columns:1fr}.centroid-cosine-row{grid-template-columns:65px minmax(70px,1fr) 70px}}
@@ -266,7 +266,7 @@ PAGE = r'''<!doctype html>
 .lecture-roadmap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;padding:12px 15px 0;background:#fbfcff}
 .lecture-road{min-width:0;display:flex;align-items:center;gap:6px;border-radius:8px;padding:6px 7px;color:#8b95aa;background:#eef1f7;font-size:10px;font-weight:800}
 .lecture-road i{display:grid;place-items:center;width:19px;height:19px;flex:0 0 19px;border-radius:6px;background:#fff;font-style:normal;font-size:9px}
-.lecture-road.active{background:#e8ecff;color:#3e50c1;box-shadow:inset 0 0 0 1px #c4ceff}.lecture-road.done{background:#e8f7f1;color:#13775f}
+.lecture-road.active{background:#e8ecff;color:#3e50c1;box-shadow:inset 0 0 0 1px #c4ceff}.lecture-road.done{background:#eee9f6;color:#402961}
 .lecture-scene{position:relative;min-height:210px;padding:14px;background:linear-gradient(180deg,#fbfcff,#f4f7fd);overflow:hidden}
 .lecture-scene:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% -10%,#dbe5ff80,transparent 60%)}
 .lecture-scene>*{position:relative;z-index:1}.lecture-scene .plot{max-height:370px}.lecture-scene .legend{justify-content:center}
@@ -276,14 +276,14 @@ PAGE = r'''<!doctype html>
 .lecture-object b{display:block;font-size:13px;color:#263653}.lecture-object p{font-size:12px;line-height:1.55;color:#68758d;margin:5px 0 0;overflow-wrap:anywhere}
 .lecture-arrow{display:flex;align-items:center;justify-content:center;color:#7888dc;font-size:24px;font-weight:900;animation:lectureArrow 1.1s ease-in-out infinite}
 .lecture-equation{margin:12px auto 0;max-width:860px;padding:11px 14px;text-align:center;background:#fff;border:1px dashed #cbd5ed;border-radius:11px;color:#263653;font:600 13px/1.7 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
-.lecture-bars{display:grid;gap:9px;max-width:900px;margin:5px auto}.lecture-bar-row{display:grid;grid-template-columns:minmax(68px,125px) minmax(80px,1fr) minmax(58px,86px);align-items:center;gap:10px;font-size:12px}.lecture-bar-label{font-weight:850;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lecture-track{height:17px;border-radius:5px;background:#e6ebf4;overflow:hidden;position:relative}.lecture-fill{height:100%;min-width:2px;border-radius:5px;background:linear-gradient(90deg,#7c8df1,#5368e8);transform-origin:left;animation:lectureGrow .75s cubic-bezier(.2,.75,.2,1) both}.lecture-fill.winner{background:linear-gradient(90deg,#31b69a,#138b77)}.lecture-fill.penalty{background:linear-gradient(90deg,#f1c17b,#d9822b)}.lecture-bar-value{text-align:right;font-variant-numeric:tabular-nums;font-weight:800;white-space:nowrap}
-.lecture-cosine{max-width:800px;margin:12px auto;padding:16px;border:1px solid #dfe6f3;border-radius:14px;background:#fff}.lecture-cosine-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.lecture-cosine-top strong{font-size:14px}.lecture-cosine-score{font-size:27px;letter-spacing:-.04em;font-weight:900;color:#4d60d4}.lecture-meter{height:15px;background:#e8edf5;border-radius:99px;position:relative;overflow:visible;margin:14px 0 8px}.lecture-meter-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#8090f0,#18a184);animation:lectureGrow .8s ease both}.lecture-threshold{position:absolute;z-index:2;top:-6px;bottom:-6px;width:3px;background:#d9822b;box-shadow:0 0 0 3px #fff;border-radius:2px}.lecture-threshold-label{position:absolute;top:19px;transform:translateX(-50%);font-size:10px;font-weight:800;color:#a55b16;white-space:nowrap}
+.lecture-bars{display:grid;gap:9px;max-width:900px;margin:5px auto}.lecture-bar-row{display:grid;grid-template-columns:minmax(68px,125px) minmax(80px,1fr) minmax(58px,86px);align-items:center;gap:10px;font-size:12px}.lecture-bar-label{font-weight:850;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lecture-track{height:17px;border-radius:5px;background:#e6ebf4;overflow:hidden;position:relative}.lecture-fill{height:100%;min-width:2px;border-radius:5px;background:linear-gradient(90deg,#7c8df1,#5368e8);transform-origin:left;animation:lectureGrow .75s cubic-bezier(.2,.75,.2,1) both}.lecture-fill.winner{background:linear-gradient(90deg,#6c45a2,#4a2f6f)}.lecture-fill.penalty{background:linear-gradient(90deg,#f1c17b,#d9822b)}.lecture-bar-value{text-align:right;font-variant-numeric:tabular-nums;font-weight:800;white-space:nowrap}
+.lecture-cosine{max-width:800px;margin:12px auto;padding:16px;border:1px solid #dfe6f3;border-radius:14px;background:#fff}.lecture-cosine-top{display:flex;justify-content:space-between;align-items:center;gap:10px}.lecture-cosine-top strong{font-size:14px}.lecture-cosine-score{font-size:27px;letter-spacing:-.04em;font-weight:900;color:#4d60d4}.lecture-meter{height:15px;background:#e8edf5;border-radius:99px;position:relative;overflow:visible;margin:14px 0 8px}.lecture-meter-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#8090f0,#563882);animation:lectureGrow .8s ease both}.lecture-threshold{position:absolute;z-index:2;top:-6px;bottom:-6px;width:3px;background:#d9822b;box-shadow:0 0 0 3px #fff;border-radius:2px}.lecture-threshold-label{position:absolute;top:19px;transform:translateX(-50%);font-size:10px;font-weight:800;color:#a55b16;white-space:nowrap}
 .lecture-caption{display:grid;grid-template-columns:40px minmax(0,1fr);gap:11px;align-items:start;padding:15px 18px;background:#fff;border-top:1px solid #e7ecf5}
-.lecture-caption-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#e8f7f1;color:#13866f;font-size:17px}
-.lecture-caption strong{display:block;font-size:12px;color:#13775f;letter-spacing:.05em}.lecture-caption p{margin:4px 0 0;font-size:13px;line-height:1.7;color:#34415d}.lecture-caption .caption-note{display:block;margin-top:5px;color:#8690a5;font-size:10px}
+.lecture-caption-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#eee9f6;color:#472e6b;font-size:17px}
+.lecture-caption strong{display:block;font-size:12px;color:#402961;letter-spacing:.05em}.lecture-caption p{margin:4px 0 0;font-size:13px;line-height:1.7;color:#34415d}.lecture-caption .caption-note{display:block;margin-top:5px;color:#8690a5;font-size:10px}
 .lecture-scene .algorithm-graph{margin:4px 0}.lecture-scene .algorithm-node{min-width:104px;flex-basis:104px}.lecture-token-cloud{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:10px auto;max-width:900px}.lecture-token{padding:9px 11px;border:1px solid #ccd7ff;border-radius:10px;background:#edf0ff;color:#4054c1;font-size:12px;font-weight:800;animation:lecturePop .35s ease both}.lecture-token small{display:block;color:#7180c7;font-size:10px;font-weight:600;margin-top:3px}
-.lecture-state-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.lecture-state{padding:12px;border-radius:12px;border:1px solid #dce4f1;background:#fff;min-width:0}.lecture-state.q{border-top:4px solid #5268e8}.lecture-state.s{border-top:4px solid #138b77}.lecture-state.r{border-top:4px solid #d9822b}.lecture-state b{display:block;font-size:12px;margin-bottom:7px}.lecture-state p{margin:0;font-size:12px;line-height:1.65;color:#5e6b83;overflow-wrap:anywhere}
-.lecture-state-chip{display:inline-block;margin:3px 3px 0 0;padding:4px 7px;border-radius:7px;background:#f0f3fa;color:#47536b;font-size:10px;font-weight:800}.lecture-state-chip.winner{background:#def6eb;color:#14765e}
+.lecture-state-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.lecture-state{padding:12px;border-radius:12px;border:1px solid #dce4f1;background:#fff;min-width:0}.lecture-state.q{border-top:4px solid #5268e8}.lecture-state.s{border-top:4px solid #4a2f6f}.lecture-state.r{border-top:4px solid #d9822b}.lecture-state b{display:block;font-size:12px;margin-bottom:7px}.lecture-state p{margin:0;font-size:12px;line-height:1.65;color:#5e6b83;overflow-wrap:anywhere}
+.lecture-state-chip{display:inline-block;margin:3px 3px 0 0;padding:4px 7px;border-radius:7px;background:#f0f3fa;color:#47536b;font-size:10px;font-weight:800}.lecture-state-chip.winner{background:#e9e2f2;color:#402961}
 @keyframes lecturePop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes lectureGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes lectureArrow{0%,100%{transform:translateX(0);opacity:.55}50%{transform:translateX(4px);opacity:1}}
@@ -339,8 +339,8 @@ PAGE = r'''<!doctype html>
 .mmr-transfer-board{margin:14px 0;padding:14px;border:1px solid #dce5f2;border-radius:15px;background:#f8faff}
 .mmr-transfer-q{padding:11px 13px;background:#eef2ff;border:1px solid #cfd8ff;border-radius:11px;margin-bottom:12px}.mmr-transfer-q b{display:block;color:#4258c6;margin-bottom:4px}.mmr-transfer-q p{margin:0;color:#35415b;font-size:12px}
 .mmr-transfer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;align-items:stretch}
-.mmr-transfer-col{min-width:0;padding:11px;border:1px solid #dce4f1;border-radius:12px;background:#fff;overflow:hidden}.mmr-transfer-col h4{font-size:11px;letter-spacing:.04em;margin:0 0 8px;color:#596783}.mmr-transfer-col.s-before{border-top:4px solid #15977d}.mmr-transfer-col.r-before{border-top:4px solid #d9822b}.mmr-transfer-col.s-after{border-top:4px solid #15977d;background:#f1fbf7}.mmr-transfer-col.r-after{border-top:4px solid #9ba8bc}
-.mmr-transfer-chip{padding:8px 9px;margin:6px 0;border:1px solid #e0e7f1;border-radius:9px;background:#f8faff;font-size:11px;line-height:1.5;overflow-wrap:anywhere}.mmr-transfer-chip small{display:block;color:#6b7890;font-size:10px;margin-top:2px}.mmr-transfer-chip.winner{border:2px solid #15977d;background:#e8f8f1;color:#116d57;font-weight:850;box-shadow:0 5px 14px #15977d1c}.mmr-transfer-chip.remain{border-color:#d5deec;background:#fff}.mmr-transfer-chip.arrive{animation:mmrArrive .85s cubic-bezier(.2,.8,.2,1) both}.mmr-transfer-chip.lose{opacity:.62}.mmr-transfer-arrow{text-align:center;color:#5368d9;font-size:22px;font-weight:900;margin:6px 0}.mmr-transfer-equation{margin-top:12px;padding:12px;border-radius:10px;background:#fff;border:1px solid #dfe6f2;font:12px/1.8 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+.mmr-transfer-col{min-width:0;padding:11px;border:1px solid #dce4f1;border-radius:12px;background:#fff;overflow:hidden}.mmr-transfer-col h4{font-size:11px;letter-spacing:.04em;margin:0 0 8px;color:#596783}.mmr-transfer-col.s-before{border-top:4px solid #503478}.mmr-transfer-col.r-before{border-top:4px solid #d9822b}.mmr-transfer-col.s-after{border-top:4px solid #503478;background:#f5f2fa}.mmr-transfer-col.r-after{border-top:4px solid #9ba8bc}
+.mmr-transfer-chip{padding:8px 9px;margin:6px 0;border:1px solid #e0e7f1;border-radius:9px;background:#f8faff;font-size:11px;line-height:1.5;overflow-wrap:anywhere}.mmr-transfer-chip small{display:block;color:#6b7890;font-size:10px;margin-top:2px}.mmr-transfer-chip.winner{border:2px solid #503478;background:#efeaf6;color:#3b2658;font-weight:850;box-shadow:0 5px 14px #5034781c}.mmr-transfer-chip.remain{border-color:#d5deec;background:#fff}.mmr-transfer-chip.arrive{animation:mmrArrive .85s cubic-bezier(.2,.8,.2,1) both}.mmr-transfer-chip.lose{opacity:.62}.mmr-transfer-arrow{text-align:center;color:#5368d9;font-size:22px;font-weight:900;margin:6px 0}.mmr-transfer-equation{margin-top:12px;padding:12px;border-radius:10px;background:#fff;border:1px solid #dfe6f2;font:12px/1.8 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
 @keyframes mmrArrive{0%{opacity:.1;transform:translateY(22px) scale(.78)}65%{opacity:1;transform:translateY(-3px) scale(1.04)}100%{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:850px){.mmr-transfer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.km-lesson-explain{grid-template-columns:1fr}.km-lesson-metric{white-space:normal}}
 @media(max-width:520px){.mmr-transfer-grid{grid-template-columns:1fr}.km-lesson-svg{min-height:190px}.km-lesson-toolbar button{font-size:11px;padding:7px 8px}}
@@ -358,8 +358,8 @@ PAGE = r'''<!doctype html>
 .mmr-road-step .mmr-road-no{display:grid;place-items:center;flex:0 0 23px;width:23px;height:23px;border-radius:7px;background:#edf1f7;color:#61708a;font-size:10px;font-weight:900}
 .mmr-road-step b{display:block;font-size:10px;line-height:1.4;color:#4a5670}
 .mmr-road-step small{display:block;margin-top:4px;font-size:9px;line-height:1.4;color:#78849a}
-.mmr-road-step.done{border-color:#c9ebdf;background:#f1fbf7}
-.mmr-road-step.done .mmr-road-no{background:#dff6ec;color:#13775f}
+.mmr-road-step.done{border-color:#d8cbe9;background:#f5f2fa}
+.mmr-road-step.done .mmr-road-no{background:#e9e2f3;color:#402961}
 .mmr-road-step.active{border-color:#8798f3;background:#eef1ff;box-shadow:0 0 0 2px #5268e818}
 .mmr-road-step.active .mmr-road-no{background:#5268e8;color:white}
 .mmr-road-step.active b{color:#354bbb}
@@ -371,7 +371,7 @@ PAGE = r'''<!doctype html>
 .mmr-loop-state>div{min-width:0;padding:10px 11px;border:1px solid #dce4f1;border-radius:10px;background:#fff}
 .mmr-loop-state b{display:block;margin-bottom:5px;font-size:11px;color:#374560}
 .mmr-loop-state p{margin:0;font-size:11px;line-height:1.55;color:#65718a;overflow-wrap:anywhere}
-.mmr-loop-state .state-r{border-top:4px solid #138b77}.mmr-loop-state .state-w{border-top:4px solid #5268e8}.mmr-loop-state .state-u{border-top:4px solid #d9822b}
+.mmr-loop-state .state-r{border-top:4px solid #4a2f6f}.mmr-loop-state .state-w{border-top:4px solid #5268e8}.mmr-loop-state .state-u{border-top:4px solid #d9822b}
 @media(max-width:850px){.mmr-road-steps{grid-template-columns:repeat(3,minmax(0,1fr))}.mmr-loop-state{grid-template-columns:1fr}}
 @media(max-width:560px){.mmr-road-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.mmr-road-step{padding:8px 7px}}
 
@@ -385,9 +385,9 @@ PAGE = r'''<!doctype html>
 .mmr-live-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;align-items:stretch;}
 .mmr-live-column{min-width:0;min-height:270px;padding:10px;border:1px solid #d9e3f2;border-radius:12px;background:#fff;overflow-wrap:anywhere;}
 .mmr-live-column h3{margin:0 0 9px;padding:0 0 8px;border-bottom:1px solid #e8edf5;color:#46516a;font-size:10px;line-height:1.45;letter-spacing:.035em;}
-.mmr-live-column.before{border-top:4px solid #15977d;}
+.mmr-live-column.before{border-top:4px solid #503478;}
 .mmr-live-column.candidates{border-top:4px solid #d9822b;}
-.mmr-live-column.after{border-top:4px solid #15977d;background:#f2fbf7;}
+.mmr-live-column.after{border-top:4px solid #503478;background:#f6f3fa;}
 .mmr-live-column.remaining{border-top:4px solid #9ba8bc;}
 .mmr-live-card{margin:6px 0;padding:8px 9px;border:1px solid #dce5f3;border-radius:9px;background:#f8faff;color:#263653;min-width:0;transition:border-color .18s,background .18s,box-shadow .18s;}
 .mmr-live-card-head{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:4px;}
@@ -396,11 +396,11 @@ PAGE = r'''<!doctype html>
 .mmr-live-card p{margin:0;color:#61708b;font-size:10px;line-height:1.55;}
 .mmr-live-card.active{border:2px solid #d9822b;background:#fff8ec;box-shadow:0 0 0 3px #f5b54425;}
 .mmr-live-card.active .mmr-live-card-head b{color:#a85f19;}
-.mmr-live-card.winner{border:2px solid #15977d;background:#e8f8f1;box-shadow:0 4px 12px #15977d20;}
-.mmr-live-card.winner .mmr-live-card-head b{color:#11765c;}
+.mmr-live-card.winner{border:2px solid #503478;background:#efeaf6;box-shadow:0 4px 12px #50347820;}
+.mmr-live-card.winner .mmr-live-card-head b{color:#3f295e;}
 .mmr-live-card.done{background:#f2f5fa;}
 .mmr-live-card.active,.mmr-live-card.active.done{background:#fff8ec;}
-.mmr-live-card.winner,.mmr-live-card.winner.done{background:#e8f8f1;}
+.mmr-live-card.winner,.mmr-live-card.winner.done{background:#efeaf6;}
 .mmr-live-mini-score{margin-top:6px;color:#5268e8;font-size:10px;font-weight:800;font-variant-numeric:tabular-nums;}
 .mmr-live-column-note{margin:10px 1px 2px;color:#64718a;font-size:10px;line-height:1.6;}
 .mmr-live-calc{margin-top:9px;padding:9px;border:1px solid #dde5f3;border-radius:9px;background:#fff;font-size:10px;line-height:1.55;}
@@ -408,18 +408,18 @@ PAGE = r'''<!doctype html>
 .mmr-live-calc p{margin:6px 0 0;font-size:10px;line-height:1.55;}
 .mmr-live-calc.rel-calc{border-left:3px solid #5268e8;}
 .mmr-live-calc.red-calc{border-left:3px solid #d9822b;}
-.mmr-live-calc.score-calc{border-left:3px solid #15977d;}
-.mmr-live-calc.winner-calc{border-left:3px solid #15977d;background:#f0fbf7;}
+.mmr-live-calc.score-calc{border-left:3px solid #503478;}
+.mmr-live-calc.winner-calc{border-left:3px solid #503478;background:#f5f2f9;}
 .mmr-live-equation{padding:7px 8px;border-radius:7px;background:#f3f6fb;color:#34415d;font:10px/1.65 ui-monospace,Consolas,monospace;overflow-wrap:anywhere;}
-.mmr-live-equation strong{color:#13775f;}
+.mmr-live-equation strong{color:#402961;}
 .mmr-live-pair{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px;padding:5px 6px;margin:4px 0;border:1px solid #e5eaf3;border-radius:6px;background:#fbfcff;font-size:9px;}
 .mmr-live-pair b{font-variant-numeric:tabular-nums;}
-.mmr-live-pair small{color:#13775f;font-size:8px;font-weight:900;}
-.mmr-live-pair.max{border-color:#d6efe5;background:#eaf9f2;}
-.mmr-live-score{margin-top:6px;padding:7px 8px;border-radius:7px;background:#eaf9f2;color:#13775f;font-size:10px;overflow-wrap:anywhere;}
+.mmr-live-pair small{color:#402961;font-size:8px;font-weight:900;}
+.mmr-live-pair.max{border-color:#e1d7ee;background:#f1ecf7;}
+.mmr-live-score{margin-top:6px;padding:7px 8px;border-radius:7px;background:#f1ecf7;color:#402961;font-size:10px;overflow-wrap:anywhere;}
 .mmr-live-score b{font-variant-numeric:tabular-nums;}
 .mmr-live-calc .score-warn{color:#9b5420;}
-.mmr-live-note{margin-top:10px;padding:9px 11px;border:1px solid #cfe9df;border-radius:9px;background:#f0fbf6;color:#276957;font-size:11px;line-height:1.6;}
+.mmr-live-note{margin-top:10px;padding:9px 11px;border:1px solid #dacfe9;border-radius:9px;background:#f5f2f9;color:#432b65;font-size:11px;line-height:1.6;}
 .mmr-live-note.warn{border-color:#f0dfc4;background:#fff8ed;color:#76531f;}
 .mmr-live-empty{padding:14px;border-radius:10px;background:#fff8ed;color:#8b5520;font-size:12px;}
 @media(max-width:1050px){.mmr-live-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.mmr-live-column{min-height:180px;}}
@@ -431,14 +431,14 @@ PAGE = r'''<!doctype html>
   --muted:#756D91;
   --line:#DED8F4;
   --blue:#3020B8;
-  --teal:#5B9D8C;
+  --teal:#765b9d;
   --orange:#D9A36C;
   --paper:#FFFFFF;
   --wash:#FBFAFF;
   --shadow:0 7px 22px rgba(48,32,184,.055);
   --pastel-lilac:#F0ECFF;
   --pastel-blue:#EAF2FF;
-  --pastel-mint:#EAF7F0;
+  --pastel-mint:#f0ebf6;
   --pastel-peach:#FFF1E3;
   --pastel-pink:#FBEAF1;
   --pastel-yellow:#FFF7D9;
@@ -462,7 +462,7 @@ h3{font-weight:800}
 .flow-heading{padding-bottom:10px;border-bottom:1px solid #E7E1FA}
 .flow-kicker,.flow-step-kicker{color:#6958C8!important;letter-spacing:.12em}
 .flow-step-badge,.stage-num{background:var(--pastel-lilac)!important;color:var(--blue)!important;border:1px solid #D8D0FB;border-radius:6px!important}
-.flow-live{background:var(--pastel-mint)!important;border-color:#CDEBDD!important;color:#397C69!important;border-radius:4px!important}
+.flow-live{background:var(--pastel-mint)!important;border-color:#daceea!important;color:#55397c!important;border-radius:4px!important}
 .input-details>summary{padding:8px 0 12px;border-bottom:1px solid #EAE5F8}
 .input-details>summary strong{color:var(--blue)!important;font-family:"Arial Narrow","Roboto Condensed",Inter,sans-serif;font-size:17px!important}
 .details-toggle{background:var(--pastel-lilac)!important;border-color:#D8D0FB!important;color:var(--blue)!important;border-radius:4px!important}
@@ -478,7 +478,7 @@ button:disabled{opacity:.42}
 .actions button#sample{background:var(--pastel-blue)}
 .status{border-radius:5px!important}
 .status.error{background:#FFF0EE!important;border-color:#F0C9C4!important;color:#93453C!important}
-.status.info{background:var(--pastel-mint)!important;border-color:#CDEBDD!important;color:#397C69!important}
+.status.info{background:var(--pastel-mint)!important;border-color:#daceea!important;color:#55397c!important}
 .hint,.small,.muted,.help{color:var(--muted)!important}
 .tabs{gap:6px;padding-bottom:10px}
 .tabs button{border-radius:4px;white-space:nowrap}
@@ -495,14 +495,14 @@ button:disabled{opacity:.42}
 .flow-strip,.flow-substep{background:#FBFAFF!important;border-color:#E3DDF6!important;border-radius:6px!important}
 .flow-tile{background:#E9E5F6!important;color:#51496C!important;border:1px solid #DAD3F0;border-radius:4px!important}
 .flow-tile.active{outline:2px solid #E2BC86!important;outline-offset:1px}
-.flow-tile.selected{background:var(--pastel-mint)!important;color:#397C69!important;border-color:#CBE9DB!important}
+.flow-tile.selected{background:var(--pastel-mint)!important;color:#55397c!important;border-color:#d8cbe9!important}
 .flow-equation,.formula,.mmr-eq,.mmr-transfer-equation,.mmr-live-equation{background:#FBFAFF!important;border-color:#E3DDF6!important;color:#3E355F!important;border-radius:5px!important}
 .flow-focus,.note,.query,.flow-result,.metric,.cosine-panel,.centroid-pipeline,.centroid-angle-card,.mmr-flow,.mmr-network,.mmr-transfer-board,.mmr-roadmap,.mmr-live-shell,.km-graph-player,.km-lesson-shell{border-radius:7px!important;box-shadow:none!important}
 .flow-focus{background:var(--pastel-lilac)!important;border-color:#D8D0FB!important;border-left:3px solid var(--blue)!important;color:#3C315F!important}
-.flow-focus.good,.flow-result,.query{background:var(--pastel-mint)!important;border-color:#CDEBDD!important;color:#315F51!important}
+.flow-focus.good,.flow-result,.query{background:var(--pastel-mint)!important;border-color:#daceea!important;color:#44315f!important}
 .flow-focus.warn,.note.warn,.mmr-red-legend,.mmr-loop-state .state-u,.mmr-live-note.warn{background:var(--pastel-peach)!important;border-color:#F0D6BA!important;color:#755637!important}
 .note{background:var(--pastel-blue)!important;border-color:#D9E5FB!important;border-left-color:#8DA8E8!important;color:#485574!important}
-.flow-result.good{background:var(--pastel-mint)!important;border-color:#CDEBDD!important}
+.flow-result.good{background:var(--pastel-mint)!important;border-color:#daceea!important}
 .metric{background:#fff!important;border-color:var(--line)!important;border-radius:5px!important}
 .metric b{color:var(--blue);font-family:"Arial Narrow","Roboto Condensed",Inter,sans-serif}
 .metric span{color:var(--muted)!important}
@@ -523,7 +523,7 @@ tbody tr.lost td{background:#FFFAF3!important}
 .final-list li{border-bottom-color:#EDE9F8!important}
 .algorithm-node{background:#fff!important;border-color:#DED8F4!important;box-shadow:none!important;border-radius:6px!important}
 .algorithm-node.primary-node{background:var(--pastel-lilac)!important;border-color:#D2C8FA!important}
-.algorithm-node.good-node{background:var(--pastel-mint)!important;border-color:#CDEBDD!important}
+.algorithm-node.good-node{background:var(--pastel-mint)!important;border-color:#daceea!important}
 .algorithm-node.warn-node{background:var(--pastel-peach)!important;border-color:#F0D6BA!important}
 .algorithm-node .node-no{background:#E8E2FF!important;color:var(--blue)!important;border-radius:4px!important}
 .algorithm-arrow,.mmr-transfer-arrow{color:#8D80D0!important}
@@ -531,12 +531,12 @@ tbody tr.lost td{background:#FFFAF3!important}
 .mmr-branch,.mmr-network-node,.mmr-transfer-col,.mmr-road-step,.mmr-live-column,.mmr-loop-state>div{background:#fff!important;border-color:var(--line)!important;border-radius:6px!important}
 .mmr-branch.rel,.mmr-network-node.qnode,.mmr-live-calc.rel-calc{border-top-color:#9F91E6!important;border-left-color:#9F91E6!important}
 .mmr-branch.red,.mmr-network-node.cnode,.mmr-live-calc.red-calc{border-top-color:#E0B17F!important;border-left-color:#E0B17F!important}
-.mmr-branch.score,.mmr-network-node.snode,.mmr-network-node.winnode,.mmr-live-calc.score-calc,.mmr-live-calc.winner-calc{border-top-color:#8CC7AF!important;border-left-color:#8CC7AF!important}
+.mmr-branch.score,.mmr-network-node.snode,.mmr-network-node.winnode,.mmr-live-calc.score-calc,.mmr-live-calc.winner-calc{border-top-color:#a58cc7!important;border-left-color:#a58cc7!important}
 .mmr-network-node.winnode,.mmr-transfer-col.s-after,.mmr-live-column.after{background:var(--pastel-mint)!important}
-.mmr-transfer-col.s-before,.mmr-live-column.before{border-top-color:#8CC7AF!important}
+.mmr-transfer-col.s-before,.mmr-live-column.before{border-top-color:#a58cc7!important}
 .mmr-transfer-col.r-before,.mmr-live-column.candidates{border-top-color:#E0B17F!important}
 .mmr-transfer-chip{border-color:#E4DFF3!important;background:#FBFAFF!important;border-radius:5px!important}
-.mmr-transfer-chip.winner,.mmr-live-card.winner{background:var(--pastel-mint)!important;border-color:#9ED9C2!important;color:#315F51!important;box-shadow:none!important}
+.mmr-transfer-chip.winner,.mmr-live-card.winner{background:var(--pastel-mint)!important;border-color:#b7a1d6!important;color:#44315f!important;box-shadow:none!important}
 .mmr-transfer-chip.active,.mmr-live-card.active{background:var(--pastel-peach)!important;border-color:#E3BD95!important;box-shadow:none!important}
 .mmr-live-q{background:var(--pastel-lilac)!important;border-color:#D8D0FB!important;color:var(--blue)!important;border-radius:5px!important}
 .mmr-live-q small{color:#51486F!important}
@@ -544,27 +544,27 @@ tbody tr.lost td{background:#FFFAF3!important}
 .mmr-live-card,.mmr-live-calc,.mmr-live-pair{border-color:#E5DFF4!important;background:#fff!important;border-radius:5px!important}
 .mmr-live-card.active,.mmr-live-card.active.done{background:var(--pastel-peach)!important}
 .mmr-live-card.winner,.mmr-live-card.winner.done{background:var(--pastel-mint)!important}
-.mmr-live-score,.mmr-live-pair.max{background:var(--pastel-mint)!important;color:#315F51!important;border-color:#CDEBDD!important}
-.mmr-live-note{background:var(--pastel-mint)!important;border-color:#CDEBDD!important;color:#315F51!important}
+.mmr-live-score,.mmr-live-pair.max{background:var(--pastel-mint)!important;color:#44315f!important;border-color:#daceea!important}
+.mmr-live-note{background:var(--pastel-mint)!important;border-color:#daceea!important;color:#44315f!important}
 .mmr-road-step.active{background:var(--pastel-lilac)!important;border-color:#BEB1F0!important;box-shadow:none!important}
 .mmr-road-step.active .mmr-road-no{background:#DCD3FF!important;color:var(--blue)!important}
-.mmr-road-step.done{background:var(--pastel-mint)!important;border-color:#CDEBDD!important}
+.mmr-road-step.done{background:var(--pastel-mint)!important;border-color:#daceea!important}
 .mmr-road-loop-note{background:var(--pastel-peach)!important;border-left-color:#E0B17F!important;color:#755637!important}
 .mmr-bars .mmr-bar-track,.lecture-track{background:#EEEAF8!important}
 .mmr-bars .mmr-bar-fill{background:linear-gradient(90deg,#C4BBF5,#8777DB)!important}
-.mmr-bars .mmr-bar-row.winner .mmr-bar-fill{background:linear-gradient(90deg,#B4E1CD,#6FB49B)!important}
+.mmr-bars .mmr-bar-row.winner .mmr-bar-fill{background:linear-gradient(90deg,#c7b5e0,#8c6fb4)!important}
 .mmr-bars .mmr-bar-fill.red-fill{background:linear-gradient(90deg,#F4D6B6,#DDA66F)!important}
 .cosine-meter{background:#EEEAF8!important}
 .cosine-meter-fill{background:linear-gradient(90deg,#B9AFF0,#7C6DD0)!important}
-.cosine-verdict.pass{background:var(--pastel-mint)!important;color:#397C69!important}
+.cosine-verdict.pass{background:var(--pastel-mint)!important;color:#55397c!important}
 .cosine-verdict.fail{background:var(--pastel-peach)!important;color:#8C6542!important}
 .centroid-cosine-track{background:#EEEAF8!important}
 .centroid-cosine-fill{background:linear-gradient(90deg,#C9C0F4,#8C7ED8)!important}
-.centroid-cosine-fill.passed{background:linear-gradient(90deg,#B8E4D1,#79BBA2)!important}
+.centroid-cosine-fill.passed{background:linear-gradient(90deg,#cbbae2,#9479bb)!important}
 .centroid-cosine-fill.failed{background:linear-gradient(90deg,#F7DAB9,#DDA66F)!important}
 .centroid-cosine-threshold{background:#6C5AC8!important}
 .mmr-bar-fill{background:linear-gradient(90deg,#C9C0F4,#8C7ED8)!important}
-.mmr-bar-row.winner .mmr-bar-fill{background:linear-gradient(90deg,#B8E4D1,#79BBA2)!important}
+.mmr-bar-row.winner .mmr-bar-fill{background:linear-gradient(90deg,#cbbae2,#9479bb)!important}
 .mmr-bar-row .mmr-bar-label,.mmr-bar-row .mmr-bar-value{color:#51486F}
 .km-graph-player,.km-lesson-shell,.centroid-pipeline,.centroid-angle-card,.mmr-transfer-board,.mmr-roadmap,.mmr-live-shell{background:#fff!important;border:1px solid var(--line)!important}
 .km-lesson-stage,.centroid-angle-svg,.plot,.km-lesson-svg{background:#fff!important;border-color:#E2DCF5!important;border-radius:4px!important}
@@ -581,7 +581,7 @@ tbody tr.lost td{background:#FFFAF3!important}
 .centroid-distance-chip text{fill:#30255C!important}
 .centroid-angle-card{background:#fff!important}
 .mmr-live-column h3,.mmr-roadmap-head strong{color:var(--blue)!important}
-.score-match{color:#4C8E7A!important}
+.score-match{color:#684c8e!important}
 .score-mismatch{background:#FFF0EE!important;border-color:#F0C9C4!important;color:#93453C!important}
 @media(max-width:850px){main{padding:14px 10px 32px}.card{padding:13px}.flow-card{padding:14px}}
 @media(max-width:560px){body::before{inset:2px}.flow-controls{border-radius:5px!important}.pills#flow-groups button{min-height:48px}}
@@ -675,7 +675,7 @@ body,main,.card,.flow-card,.input-card,.flow-content,.stage,.workspace{
 }
 .flow-tile small{font-weight:600!important;}
 .flow-tile.selected,.flow-tile.selected small,.flow-tile.selected .flow-sub{
-  color:#244F43!important;
+  color:#36244f!important;
 }
 /* Make active navigation and pastel badges dark, readable and consistent. */
 .pills#flow-groups button.on,
@@ -687,7 +687,7 @@ body,main,.card,.flow-card,.input-card,.flow-content,.stage,.workspace{
 }
 .flow-live,.status.info,.flow-result,.flow-focus.good,.query,
 .mmr-live-note,.mmr-live-score,.mmr-transfer-chip.winner{
-  color:#245747!important;
+  color:#392556!important;
 }
 .flow-focus.warn,.note.warn,.mmr-red-legend,.mmr-road-loop-note,
 .mmr-live-note.warn,.score-mismatch{
@@ -713,23 +713,23 @@ button.primary,.flow-controls #flow-play,.km-graph-toolbar .km-graph-play,
 .rep-cluster-head h3{margin:0;color:#30264A;font-size:17px}
 .rep-cluster-head p{margin:5px 0 0;color:#4C4564;font-size:13px;line-height:1.5}
 .rep-count{flex-shrink:0;padding:6px 9px;border:1px solid #DCD5F3;border-radius:8px;background:#F3F0FC;color:#493C77;font-size:12px;font-weight:750}
-.rep-chosen-summary{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;margin:10px 0;border:1px solid #B9DDCF;border-radius:9px;background:#F0F8F4;color:#203C34}
-.rep-chosen-summary .rep-star{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:7px;background:#D6EEE3;color:#17664F;font-size:19px}
-.rep-chosen-summary b{display:block;color:#174D3D;font-size:14px}
-.rep-chosen-summary p{margin:3px 0;color:#293F37;font-size:13px;line-height:1.5}
-.rep-chosen-summary small{color:#174D3D;font-size:12px;font-weight:750}
+.rep-chosen-summary{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;margin:10px 0;border:1px solid #c8b9dd;border-radius:9px;background:#f3f0f8;color:#2c203c}
+.rep-chosen-summary .rep-star{display:grid;place-items:center;flex:0 0 28px;width:28px;height:28px;border-radius:7px;background:#e0d6ee;color:#3a2658;font-size:19px}
+.rep-chosen-summary b{display:block;color:#2f1e46;font-size:14px}
+.rep-chosen-summary p{margin:3px 0;color:#32293f;font-size:13px;line-height:1.5}
+.rep-chosen-summary small{color:#2f1e46;font-size:12px;font-weight:750}
 .rep-cluster-panel table{min-width:760px;font-size:13px}
 .rep-cluster-panel th{color:#30264A;background:#F2EFFB;font-size:12px}
 .rep-cluster-panel td{color:#29243C}
-.rep-cluster-panel tr.rep-selected-row td{background:#E7F5EE!important;border-top:1px solid #9ACDB9;border-bottom:1px solid #9ACDB9;font-weight:650}
+.rep-cluster-panel tr.rep-selected-row td{background:#ede7f5!important;border-top:1px solid #af9acd;border-bottom:1px solid #af9acd;font-weight:650}
 .rep-cluster-panel tr.rep-member-row td{background:#FCFBFF}
 .rep-cluster-panel tr.rep-other-row td{color:#625D70}
-.rep-cluster-panel tr.rep-selected-row td:first-child{border-left:4px solid #4F9F82}
+.rep-cluster-panel tr.rep-selected-row td:first-child{border-left:4px solid #704f9f}
 .rep-cluster-panel .rep-cluster-tag,.rep-member-pill,.rep-outside-pill,.rep-selected-pill{display:inline-block;padding:4px 7px;border-radius:6px;font-size:11px;font-weight:750;white-space:nowrap}
 .rep-cluster-tag{background:#F0ECFA;border:1px solid #DCD2F2;color:#40345F}
-.rep-member-pill{background:#EAF5EF;border:1px solid #C8E5D7;color:#245B48}
+.rep-member-pill{background:#efeaf5;border:1px solid #d4c8e5;color:#3b2659}
 .rep-outside-pill{background:#F6F0E8;border:1px solid #EAD9C4;color:#78572E}
-.rep-selected-pill{background:#D4EEE2;border:1px solid #A6D4C1;color:#155B44}
+.rep-selected-pill{background:#dfd5ed;border:1px solid #b9a6d4;color:#34224e}
 .rep-cluster-note{margin:9px 1px 0;color:#4B3F65;font-size:12px;line-height:1.55}
 @media(max-width:650px){.rep-cluster-panel{padding:10px}.rep-cluster-head{flex-direction:column}.rep-count{white-space:normal}}
 
@@ -741,7 +741,7 @@ button.primary,.flow-controls #flow-play,.km-graph-toolbar .km-graph-play,
 
 <div class="layout"><aside class="card input-card"><details id="input-details" class="input-details" open><summary><span><strong>Văn bản đầu vào & tham số</strong><small>Mở để sửa tài liệu, số cụm K, ngưỡng cosine hoặc λ của MMR.</small></span><b class="details-toggle">Hiện / ẩn</b></summary><div class="input-details-body"><div id="docs"></div><div class="actions"><button id="add-doc" type="button">＋ Thêm tài liệu</button><button id="sample" type="button">Khôi phục mẫu</button></div>
 
-<div class="settings"><div class="setting"><label for="clusters">Số cụm K</label><select id="clusters"><option value="custom" selected>Tùy chỉnh</option><option value="auto">Tự động theo main</option></select></div><div class="setting"><label for="custom-k">K tùy chỉnh</label><input id="custom-k" type="number" value="6" min="1" max="30"></div><div class="setting"><label for="mode">Chế độ MMR</label><select id="mode"><option value="train" selected>Train · như main</option><option value="test">Test · tối đa 16 câu</option></select></div><div class="setting"><label for="lambda">λ trong MMR</label><input id="lambda" type="number" value="0.6" min="0" max="1" step="0.05"></div><div class="setting"><label>Chọn câu Centroid</label><div class="flow-equation" style="margin:0;padding:8px">Cosine + ngưỡng lọc trùng</div></div><div class="setting"><label for="cosine-threshold">Ngưỡng cosine</label><input id="cosine-threshold" type="number" value="0.35" min="0" max="1" step="0.05"></div><p class="hint wide">K tùy chỉnh mặc định là 8 để quan sát nhiều cụm. K-means chạy đến khi hội tụ, không cố định 2 vòng. Chỉnh ngưỡng cosine hoặc λ rồi bấm “Chạy pipeline” để cập nhật tập câu chuyển sang MMR.</p></div></div></details><div class="input-run-row"><button class="primary" id="run" type="button">Chạy pipeline</button><div class="status" id="status" role="status"></div></div></aside>
+<div class="settings"><div class="setting"><label for="clusters">Số cụm K</label><select id="clusters"><option value="custom" selected>Tùy chỉnh</option><option value="auto">Tự động theo main</option></select></div><div class="setting"><label for="custom-k">K tùy chỉnh</label><input id="custom-k" type="number" value="6" min="1" max="30"></div><div class="setting"><label for="mode">Chế độ MMR</label><select id="mode"><option value="train" selected>Train · 70% ứng viên</option><option value="test">Test · 70% ứng viên</option></select></div><div class="setting"><label for="lambda">λ trong MMR</label><input id="lambda" type="number" value="0.6" min="0" max="1" step="0.05"></div><div class="setting"><label>Chọn câu Centroid</label><div class="flow-equation" style="margin:0;padding:8px">Cosine + ngưỡng lọc trùng</div></div><div class="setting"><label for="cosine-threshold">Ngưỡng cosine</label><input id="cosine-threshold" type="number" value="0.35" min="0" max="1" step="0.05"></div><p class="hint wide">K tùy chỉnh mặc định là 8 để quan sát nhiều cụm. K-means chạy đến khi hội tụ, không cố định 2 vòng. Chỉnh ngưỡng cosine hoặc λ rồi bấm “Chạy pipeline” để cập nhật tập câu chuyển sang MMR.</p></div></div></details><div class="input-run-row"><button class="primary" id="run" type="button">Chạy pipeline</button><div class="status" id="status" role="status"></div></div></aside>
 
 <section class="workspace">
   <div class="card empty" id="empty"><div><strong>Chưa có kết quả</strong>Sửa văn bản mẫu hoặc nhập nội dung riêng, sau đó chạy pipeline.</div></div>
@@ -776,8 +776,8 @@ const SAMPLE=[
 const LABELS=['1 · Tiền xử lý','2 · K-means','3 · Đại diện & Centroid','4 · MMR','5 · Kết quả'];
 const FLOW_GROUPS=['Đầu vào & biểu diễn','K-means','Câu đại diện','Centroid','MMR','Kết quả'];
 
-const COLORS=['#8E9BE5','#65B49C','#D6A06E','#A78CD3','#C77F9B','#6BA9D0','#9FAB59','#8997A9','#BC8266','#66AEB5'];
-const KM_COLORS=['#8798E0','#79C4B1','#E0A477','#B09AD8','#D991AA','#82B9D8','#B4C66F','#9BAABD','#C78B70','#78C3C6'];
+const COLORS=['#8E9BE5','#8665b4','#D6A06E','#A78CD3','#C77F9B','#6BA9D0','#9FAB59','#8997A9','#BC8266','#8766b5'];
+const KM_COLORS=['#8798E0','#9879c4','#E0A477','#B09AD8','#D991AA','#82B9D8','#B4C66F','#9BAABD','#C78B70','#9979c5'];
 function starPath(cx,cy,outer=8,inner=3.6){const pts=[];for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,r=i%2===0?outer:inner;pts.push((cx+Math.cos(a)*r).toFixed(2)+' '+(cy+Math.sin(a)*r).toFixed(2));}return 'M '+pts.join(' L ')+' Z';}
 
 const $=id=>document.getElementById(id);let DATA=null,RUN_DOCS=[],stage=0,kmRestart=0,kmStep=0,centroidStep=0,mmrStep=0,flowSteps=[],flowIndex=0,flowTimer=null,kmAnimIndex=0,kmAnimTimer=null,kmLessonTimer=null,kmLessonState=null,kmInitTimer=null,kmInitState=null,kmMoveTimer=null,kmMoveState=null;
@@ -1004,7 +1004,7 @@ function mmr(){
   html+='<div class="query"><b>QUERY Q · CỐ ĐỊNH QUA CÁC LƯỢT</b><b style="font-size:15px;letter-spacing:0;color:var(--ink)">'+esc(pool[0].id)+' · '+esc(pool[0].text)+'</b><div class="small">Q là câu đầu tiên sau CentroidBow. Theo cách khởi tạo của pipeline này, R₀={Q}; các câu khác là ứng viên U. Sau mỗi lượt, câu thắng được thêm vào R và bỏ khỏi U. Q không đổi; IDF lấy từ MMR.IDFs() của repository.</div></div>'+ 
     '<div class="formula">Rel(c) = sentenceSim(c, Q)<br>Red(c,R) = max<sub>r ∈ R</sub> sentenceSim(c, r)<br>MMR(c) = λ × Rel(c) − (1−λ) × Red(c,R)<br><span class="small">λ = '+num(lambda,4)+'</span></div>';
   if(!round){
-    html+='<div class="note warn">Không có lượt chọn bổ sung trong chế độ này. Ở Train, target = N − 4; nếu N ≤ 5 thì target ≤ 1 nên vòng lặp không chạy và chỉ giữ Q. Nếu muốn thấy nhiều vòng, cần có thêm ứng viên sau CentroidBow. Test đặt target 16, nhưng nếu tập ứng viên nhỏ hơn 16 thì thuật toán dừng khi hết ứng viên.</div><div class="winner-box"><b>Tập R đã chọn cuối cùng</b>'+chips(DATA.mmr.selected.map(x=>x.id+' · '+x.text))+'</div>';
+    html+='<div class="note warn">MMR giữ ceil(0,7 × C) câu, với C là số ứng viên sau Centroid. Mục tiêu đã bao gồm câu mốc Q; khi mục tiêu bằng 1 thì không có lượt chọn thêm.</div><div class="winner-box"><b>Tập R đã chọn cuối cùng</b>'+chips(DATA.mmr.selected.map(x=>x.id+' · '+x.text))+'</div>';
     return html;
   }
   const jumpButtons=rounds.map((r,i)=>'<button type="button" data-mmr-jump="'+i+'" class="'+(i===mmrStep?'current':(i<mmrStep?'done':''))+'">Vòng '+(i+1)+'</button>').join('');
@@ -1021,7 +1021,7 @@ function mmr(){
   return html;
 }
 
-function finalStage(){const rows=DATA.final.map((s,i)=>'<li><small>'+esc(s.id)+' · tài liệu '+esc(s.doc_label)+'</small>'+esc(s.text)+'</li>');return cardTitle('05','Phục hồi vị trí và bản tóm tắt','Áp dụng add_position: giữ câu được MMR chọn, bổ sung từ danh sách đại diện đến len_summary rồi sắp lại theo thứ tự nguồn.')+metrics([[DATA.mmr.selected.length,'MMR chọn'],[DATA.final.length,'câu cuối'],[DATA.final.length===DATA.final_target?'đạt':'đạt một phần','len_summary='+DATA.final_target]])+'<div class="note">MMR order: '+chips(DATA.mmr.selected.map(x=>x.id))+'</div><ol class="final-list">'+rows.join('')+'</ol>'+(DATA.final.length<DATA.final_target?'<div class="note warn">Pipeline chỉ có '+DATA.final.length+' câu đại diện hợp lệ, ít hơn len_summary mục tiêu '+DATA.final_target+'.</div>':'');}
+function finalStage(){const rows=DATA.final.map((s,i)=>'<li><small>'+esc(s.id)+' · tài liệu '+esc(s.doc_label)+'</small>'+esc(s.text)+'</li>');return cardTitle('05','Phục hồi vị trí và bản tóm tắt','Giữ các câu được MMR chọn theo tỷ lệ 70%, áp dụng giới hạn số câu nếu có rồi sắp theo thứ tự nguồn; không bổ sung lại câu đã loại.')+metrics([[DATA.mmr.selected.length,'MMR chọn'],[DATA.final.length,'câu cuối'],[DATA.final.length===DATA.final_target?'đạt':'đạt một phần','len_summary='+DATA.final_target]])+'<div class="note">MMR order: '+chips(DATA.mmr.selected.map(x=>x.id))+'</div><ol class="final-list">'+rows.join('')+'</ol>'+(DATA.final.length<DATA.final_target?'<div class="note warn">Pipeline chỉ có '+DATA.final.length+' câu đại diện hợp lệ, ít hơn len_summary mục tiêu '+DATA.final_target+'.</div>':'');}
 
 function flowAdd(group,type,title,description,extra={}){flowSteps.push({group,type,title,description,...extra});}
 function flowBuild(){
@@ -1479,7 +1479,7 @@ function cosineAngleSvg(score,id){
   const ox=78,oy=190,len=145,ax=ox+len,ay=oy,bx=ox+len*Math.cos(theta),by=oy-len*Math.sin(theta),r=46,ex=ox+r*Math.cos(theta),ey=oy-r*Math.sin(theta);
   const large=theta>Math.PI?1:0;
   const arc=theta<0.001?'':('M '+(ox+r)+' '+oy+' A '+r+' '+r+' 0 '+large+' 0 '+ex+' '+ey);
-  return '<div class="centroid-angle-card"><h3>Góc giữa vector câu và vector chủ đề</h3><p>Minh họa góc tương ứng với cosine thực tế của câu '+esc(id||'đang xét')+'. Độ dài hai mũi tên được chuẩn hóa để dễ nhìn hướng.</p><svg class="centroid-angle-svg" viewBox="0 0 560 250" role="img" aria-label="Góc cosine giữa vector câu và vector chủ đề"><defs><marker id="centroid-arrow-topic" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#5B9D8C"/></marker><marker id="centroid-arrow-sentence" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#3020B8"/></marker></defs><line x1="40" y1="'+oy+'" x2="520" y2="'+oy+'" stroke="#e2e8f2" stroke-width="1.5"/><line x1="'+ox+'" y1="35" x2="'+ox+'" y2="220" stroke="#e2e8f2" stroke-width="1.5"/><line class="angle-vector" x1="'+ox+'" y1="'+oy+'" x2="'+ax+'" y2="'+ay+'" stroke="#5B9D8C" stroke-width="5" marker-end="url(#centroid-arrow-topic)"/><line class="angle-vector" x1="'+ox+'" y1="'+oy+'" x2="'+bx+'" y2="'+by+'" stroke="#3020B8" stroke-width="5" marker-end="url(#centroid-arrow-sentence)"/><path class="angle-arc" d="'+arc+'" fill="none" stroke="#D9A36C" stroke-width="3"/><circle cx="'+ox+'" cy="'+oy+'" r="5" fill="#263653"/><text x="'+(ax-8)+'" y="'+(ay+24)+'" fill="#5B9D8C" font-size="13" font-weight="800" text-anchor="end">Vector chủ đề μ</text><text x="'+(bx+12)+'" y="'+(by-9)+'" fill="#3020B8" font-size="13" font-weight="800">Vector câu c</text><text x="'+(ox+60*Math.cos(theta/2))+'" y="'+(oy-60*Math.sin(theta/2)-5)+'" fill="#A47A4F" font-size="13" font-weight="900">θ = '+degrees.toFixed(1)+'°</text><text x="'+(ox+10)+'" y="'+(oy+20)+'" fill="#56627b" font-size="11">O</text><text x="280" y="232" text-anchor="middle" fill="#5f6c85" font-size="11">cos(c, μ) = (c · μ) / (||c|| × ||μ||) = '+num(clamped,6)+'</text></svg><div class="flow-equation">θ = arccos(cos(c, μ)) = arccos('+num(clamped,7)+') = <b>'+degrees.toFixed(2)+'°</b></div></div>';
+  return '<div class="centroid-angle-card"><h3>Góc giữa vector câu và vector chủ đề</h3><p>Minh họa góc tương ứng với cosine thực tế của câu '+esc(id||'đang xét')+'. Độ dài hai mũi tên được chuẩn hóa để dễ nhìn hướng.</p><svg class="centroid-angle-svg" viewBox="0 0 560 250" role="img" aria-label="Góc cosine giữa vector câu và vector chủ đề"><defs><marker id="centroid-arrow-topic" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#765b9d"/></marker><marker id="centroid-arrow-sentence" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#3020B8"/></marker></defs><line x1="40" y1="'+oy+'" x2="520" y2="'+oy+'" stroke="#e2e8f2" stroke-width="1.5"/><line x1="'+ox+'" y1="35" x2="'+ox+'" y2="220" stroke="#e2e8f2" stroke-width="1.5"/><line class="angle-vector" x1="'+ox+'" y1="'+oy+'" x2="'+ax+'" y2="'+ay+'" stroke="#765b9d" stroke-width="5" marker-end="url(#centroid-arrow-topic)"/><line class="angle-vector" x1="'+ox+'" y1="'+oy+'" x2="'+bx+'" y2="'+by+'" stroke="#3020B8" stroke-width="5" marker-end="url(#centroid-arrow-sentence)"/><path class="angle-arc" d="'+arc+'" fill="none" stroke="#D9A36C" stroke-width="3"/><circle cx="'+ox+'" cy="'+oy+'" r="5" fill="#263653"/><text x="'+(ax-8)+'" y="'+(ay+24)+'" fill="#765b9d" font-size="13" font-weight="800" text-anchor="end">Vector chủ đề μ</text><text x="'+(bx+12)+'" y="'+(by-9)+'" fill="#3020B8" font-size="13" font-weight="800">Vector câu c</text><text x="'+(ox+60*Math.cos(theta/2))+'" y="'+(oy-60*Math.sin(theta/2)-5)+'" fill="#A47A4F" font-size="13" font-weight="900">θ = '+degrees.toFixed(1)+'°</text><text x="'+(ox+10)+'" y="'+(oy+20)+'" fill="#56627b" font-size="11">O</text><text x="280" y="232" text-anchor="middle" fill="#5f6c85" font-size="11">cos(c, μ) = (c · μ) / (||c|| × ||μ||) = '+num(clamped,6)+'</text></svg><div class="flow-equation">θ = arccos(cos(c, μ)) = arccos('+num(clamped,7)+') = <b>'+degrees.toFixed(2)+'°</b></div></div>';
 }
 function mmrTransferBoard(round){
   const q=DATA.mmr.pool[0],before=round.selected_before||[],remainingBefore=round.remaining_before||[],after=round.selected_after||[],remainingAfter=round.remaining_after||[];
@@ -1887,7 +1887,7 @@ function mmrLiveBoard(item){
     const c=candidates.find(z=>z.id===x.id);
     return chip(x,{score:winnerStage&&c?c.score:undefined,done:winnerStage&&!!c});
   }).join('')||'<p class="mmr-live-hint">Không còn ứng viên.</p>';
-  const liveNote=isNoRound?'<div class="mmr-live-note warn"><b>Không có vòng MMR bổ sung.</b> Điều kiện dừng của chế độ hiện tại không cho phép lặp; giữ nguyên Q trong R. Hãy dùng chế độ Test hoặc tăng số câu qua Centroid để quan sát các lượt chọn.</div>':item.type==='mmr-loop-check'&&ri>=0?'<div class="mmr-live-note '+(ri<rounds.length-1?'good':'warn')+'"><b>'+(ri<rounds.length-1?'Tiếp tục vòng '+(ri+2):'Kết thúc MMR')+'.</b> R đã được cập nhật. Ở vòng tiếp theo, Rel so với Q vẫn được tính theo Q cố định; Red sẽ được tính lại theo tập R mới.</div>':'';
+  const liveNote=isNoRound?'<div class="mmr-live-note warn"><b>Không có vòng MMR bổ sung.</b> Điều kiện dừng của chế độ hiện tại không cho phép lặp; giữ nguyên Q trong R. Hãy tăng số ứng viên qua Centroid để quan sát các lượt chọn.</div>':item.type==='mmr-loop-check'&&ri>=0?'<div class="mmr-live-note '+(ri<rounds.length-1?'good':'warn')+'"><b>'+(ri<rounds.length-1?'Tiếp tục vòng '+(ri+2):'Kết thúc MMR')+'.</b> R đã được cập nhật. Ở vòng tiếp theo, Rel so với Q vẫn được tính theo Q cố định; Red sẽ được tính lại theo tập R mới.</div>':'';
   return '<div class="mmr-live-shell"><div class="mmr-live-q"><div><b>Q · GIỮ NGUYÊN Q QUA MỌI VÒNG</b><small>'+esc(q.id)+' · '+esc(q.text)+'</small></div><span>'+esc(heading)+'</span></div><div class="mmr-live-grid"><section class="mmr-live-column before"><h3>TRƯỚC LƯỢT · R ĐÃ CHỌN</h3>'+beforeHtml+'<p class="mmr-live-column-note">Các câu trong R dùng để tính Red.</p></section><section class="mmr-live-column candidates"><h3>ỨNG VIÊN CHƯA CHỌN</h3>'+candidateHtml+'<p class="mmr-live-column-note">'+(activeCandidate?'Đang xét '+esc(activeCandidate.id)+'. Sau khi chấm hết ứng viên sẽ chọn MMRScore cao nhất.':'Chuyển từng bước để xem phép tính của từng câu.')+'</p></section><section class="mmr-live-column after"><h3>SAU LƯỢT · R MỚI</h3>'+afterHtml+'<p class="mmr-live-column-note">'+(winnerStage&&winner?'Đã thêm '+esc(winner.id)+' vào R.':'Chưa chuyển câu thắng cho đến Bước 4.')+'</p></section><section class="mmr-live-column remaining"><h3>ỨNG VIÊN CÒN LẠI</h3>'+remainingHtml+'<p class="mmr-live-column-note">'+(winnerStage?'Câu thắng đã bị loại khỏi U.':'Sau khi chọn câu thắng, câu đó sẽ bị bỏ khỏi danh sách này.')+'</p></section></div>'+liveNote+'</div>';
 }
 
@@ -1943,7 +1943,7 @@ function renderFlowStrip(item){
     else if(item.group===4)picked=mmrPickedTexts.has(s.text);
     else if(item.group===5&&item.type==='mmr-order')picked=mmrTexts.has(s.text);
     else if(item.group>=5)picked=finalTexts.has(s.text);
-    if(picked)bg='#6AAE9A';
+    if(picked)bg='#866aae';
     const active=(kLive&&kmLessonState.phase==='sweep'&&i===kmLessonState.cursor)||focusedText===s.text;
     return '<div class="flow-tile '+(active?'active ':'')+(picked?'selected':'')+'" style="background:'+bg+'" title="'+esc(s.text)+'">'+esc(s.id)+(picked?' ★':'')+'<small>'+esc(s.text)+'</small></div>';
   }).join('');
@@ -2566,7 +2566,7 @@ def run_pipeline(payload):
 
     from methods.centroid.centroid_summarizer import CentroidBow
 
-    from methods.main_method.Kmeans_CentroidBase_MMR_SentencePosition import Summarizer
+    from methods.main_method.Kmeans_CentroidBase_MMR_SentencePosition import Summarizer, mmr_target_count
 
     from methods.maximal_marginal_relevance.mmr_summarizer import MMR
 
@@ -3237,7 +3237,7 @@ def run_pipeline(payload):
 
     summary = [query]
 
-    target = len(new_sents_mmr) - 4 if mode == "train" else 16
+    target = mmr_target_count(len(new_sents_mmr))
 
     sum_len = 0
 
@@ -3347,13 +3347,13 @@ def run_pipeline(payload):
 
     mmr_strings = [item.getOGwords() for item in summary]
 
-    requested_length = payload.get("summary_length", 4)
-    if requested_length is None:
-        requested_length = 16
-    if isinstance(requested_length, bool) or not isinstance(requested_length, int) or not 1 <= requested_length <= 16:
+    requested_length = payload.get("summary_length")
+    if requested_length is not None and (isinstance(requested_length, bool) or not isinstance(requested_length, int) or not 1 <= requested_length <= 16):
         raise ValueError("Số câu phải là số nguyên từ 1 đến 16, hoặc để trống để tự động.")
-    final_target = min(requested_length, n_clusters, len(new_sents))
-    mmr_for_final = mmr_strings[:final_target] if "summary_length" in payload else mmr_strings
+    if requested_length is None:
+        requested_length = len(mmr_strings)
+    final_target = min(requested_length, n_clusters, len(new_sents), len(mmr_strings))
+    mmr_for_final = mmr_strings[:final_target]
 
     final_index = Summarizer(n_clusters=n_clusters, len_summary=final_target).add_position(
 

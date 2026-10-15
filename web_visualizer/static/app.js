@@ -136,7 +136,7 @@ function renderClusters(data) {
 }
 
 function clusterColor(cluster) {
-  return ["#0f766e", "#4669bd", "#aa641b", "#924f9a", "#b74d60"][ (cluster - 1) % 5 ];
+  return ["#3e285d", "#4669bd", "#aa641b", "#924f9a", "#b74d60"][ (cluster - 1) % 5 ];
 }
 
 function renderCentroid(data) {
@@ -173,7 +173,7 @@ function renderMmr(data) {
     .join("");
 
   container.className = "mmr-list";
-  container.innerHTML = explain(`MMR = ${lambda} × liên quan − ${(1 - lambda).toFixed(2)} × trùng lặp`, `Chọn câu đầu trong danh sách Centroid làm câu mốc. Mỗi lượt tiếp theo ưu tiên liên quan với câu mốc và phạt độ giống với câu đã chọn. Chế độ train của file gốc giữ tối thiểu câu mốc, với mục tiêu bằng số ứng viên Centroid trừ 4. Đang giữ ${data.stats.mmrCount} câu.`) + rows;
+  container.innerHTML = explain(`MMR = ${lambda} × liên quan − ${(1 - lambda).toFixed(2)} × trùng lặp`, `Chọn câu đầu trong danh sách Centroid làm câu mốc. Mỗi lượt tiếp theo ưu tiên liên quan với câu mốc và phạt độ giống với câu đã chọn. MMR chọn 70% số ứng viên sau Centroid, làm tròn lên; số này đã bao gồm câu mốc. Không bổ sung lại câu đã loại. Đang giữ ${data.stats.mmrCount} câu.`) + rows;
 }
 
 function renderSummary(data) {

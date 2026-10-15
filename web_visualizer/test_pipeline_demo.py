@@ -1,6 +1,7 @@
 """Check the standalone demo's shared web input and output contract."""
 import io
 import re
+import math
 import unittest
 import tempfile
 import os
@@ -50,7 +51,7 @@ class PipelineDemoTests(unittest.TestCase):
         defaults = demo_defaults()
         page = self.client.get('/').get_data(as_text=True)
         self.assertIn(f'value="{defaults["clusters"]}" placeholder="Tự động"', page)
-        self.assertIn('--blue:#0f766e', demo_styles())
+        self.assertIn('--blue:#8870b5', demo_styles())
         self.assertNotIn('#3020b8', demo_styles().lower())
 
     def test_source_reload_updates_backend_and_defaults_together(self):
@@ -80,7 +81,23 @@ class PipelineDemoTests(unittest.TestCase):
         self.assertTrue(data["kmeans"]["history"])
         self.assertTrue(data["centroid"]["process"])
         self.assertTrue(data["mmr"]["rounds"])
+        self.assertEqual(len(data['mmr']['selected']), math.ceil(0.7 * len(data['mmr']['pool'])))
         self.assertEqual(data["final"][0]["id"], data["mmr"]["selected"][0]["id"])
+
+    def test_small_candidate_pools_do_not_fill_back_to_k(self):
+        for mode in ('train', 'test'):
+            for clusters in (1, 2, 8):
+                with self.subTest(mode=mode, clusters=clusters):
+                    response = self.client.post('/api/pipeline', data={
+                        'texts': TEXT, 'clusters': str(clusters), 'mode': mode,
+                        'cosineThreshold': '0', 'summaryLength': '16',
+                    })
+                    self.assertEqual(response.status_code, 200, response.get_json())
+                    data = response.get_json()
+                    target = math.ceil(0.7 * len(data['mmr']['pool']))
+                    self.assertEqual(data['mmr']['target'], target)
+                    self.assertEqual(len(data['final']), target)
+                    self.assertEqual({s['id'] for s in data['final']}, {s['id'] for s in data['mmr']['selected']})
 
     def test_blank_or_missing_length_uses_automatic_count(self):
         for extra in ({}, {"summaryLength": ""}):
@@ -89,7 +106,11 @@ class PipelineDemoTests(unittest.TestCase):
                 self.assertEqual(response.status_code, 200, response.get_json())
                 data = response.get_json()
                 self.assertEqual(data["kmeans"]["k"], 3)
-                self.assertEqual(len(data["final"]), 3)
+                target = math.ceil(0.7 * len(data['mmr']['pool']))
+                self.assertEqual(data['mmr']['target'], target)
+                self.assertEqual(len(data['mmr']['selected']), target)
+                self.assertEqual(len(data["final"]), target)
+                self.assertEqual({s['id'] for s in data['final']}, {s['id'] for s in data['mmr']['selected']})
                 self.assertEqual(data["summaryMode"], "auto")
 
     def test_bad_parameters_and_short_documents_are_actionable(self):

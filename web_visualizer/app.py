@@ -333,6 +333,7 @@ def summarize(documents, requested_summary_length=None, lambta=0.6):
         mode="train",
         lambta=lambta,
     )
+    summary_length = min(summary_length, len(mmr_summaries))
     mmr_candidate_indexes = index_mmr_summaries(new_sents, mmr_summaries)
     centroid_score_by_index = centroid_scores(new_sents)
     mmr_score_by_object = mmr_scores(object_sents, index_sents, mmr_summaries, lambta)

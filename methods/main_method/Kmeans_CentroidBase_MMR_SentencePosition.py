@@ -1,5 +1,6 @@
 import os
 import sys
+import math
 
 # Project root
 ROOT_DIR = os.path.abspath(
@@ -21,11 +22,16 @@ from methods.maximal_marginal_relevance.mmr_summarizer import MMR
 from methods.centroid.centroid_summarizer import CentroidBow
 import argparse
 
+def mmr_target_count(candidate_count):
+    """Keep 70% of the MMR pool, rounded up; an empty pool stays empty."""
+    return max(0, math.ceil(0.7 * candidate_count))
+
+
 def makeSummary(sentences, best_sentence, query, summary_length, lambta, IDF):
     summary = [best_sentence]
     sum_len = 0
 
-    while (sum_len < summary_length-1):
+    while sentences and sum_len < summary_length - 1:
         MMRval = {}
 
         for sent in sentences:
@@ -109,15 +115,17 @@ class Summarizer(object):
         for item in index_sents:
             new_sents_mmr.append(object_sents[item])
 
+        if not new_sents_mmr:
+            return []
+
         best_sent = new_sents_mmr[0]
         remaining_sents = new_sents_mmr[1:]
 
         IDF_w = MMR.IDFs(new_sents_mmr)
 
-        if mode == "train":
-            summary = makeSummary(remaining_sents, best_sent, best_sent, len(new_sents_mmr) - 4, lambta, IDF_w)
-        else:
-            summary = makeSummary(remaining_sents, best_sent, best_sent, length_sentence, lambta, IDF_w)
+        # Both modes use the same candidate-based length policy.
+        target = mmr_target_count(len(new_sents_mmr))
+        summary = makeSummary(remaining_sents, best_sent, best_sent, target, lambta, IDF_w)
 
         mmr_summaries = []
         for item in summary:
@@ -186,6 +194,9 @@ class Summarizer(object):
 
         mmr_summaries = self.mmr_summarizer(object_sents, index_sents, mode)
 
+        # Only restore source order; do not reintroduce sentences MMR rejected.
+        len_sent = min(len_sent, len(mmr_summaries))
+        mmr_summaries = mmr_summaries[:len_sent]
         final_index = self.add_position(new_sents, mmr_summaries, len_sent, index_sents, n_clusters)
 
         final_summaries = [new_sents[i]for i in final_index if isinstance(i, int) and 0 <= i < len(new_sents)]
